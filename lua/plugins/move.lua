@@ -1,4 +1,3 @@
--- https://github.com/fedepujol/move.nvim
 return {
     "fedepujol/move.nvim",
     cmd = {

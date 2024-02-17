@@ -1,4 +1,3 @@
--- https://github.com/chrisgrieser/nvim-alt-substitute
 return {
     "chrisgrieser/nvim-alt-substitute",
     event = "CmdlineEnter",

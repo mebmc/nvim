@@ -1,12 +1,10 @@
 -- File Explorer / Tree
 return {
-  -- https://github.com/nvim-neo-tree/neo-tree.nvim
   'nvim-neo-tree/neo-tree.nvim',
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "3rd/image.nvim",
-    -- https://github.com/nvim-tree/nvim-web-devicons
     'nvim-tree/nvim-web-devicons', -- Fancy icon support
   },
   opts = {

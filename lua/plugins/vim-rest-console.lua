@@ -1,6 +1,4 @@
--- REST Client
 return {
-  -- https://github.com/diepm/vim-rest-console
   'diepm/vim-rest-console',
   event = 'VeryLazy',
   config = function ()

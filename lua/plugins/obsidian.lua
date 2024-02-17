@@ -1,4 +1,3 @@
--- https://github.com/epwalsh/obsidian.nvim
 return {
     "epwalsh/obsidian.nvim",
     event = { "BufReadPre " .. vim.fn.expand "~" .. "~/git/technotes/**.md" },

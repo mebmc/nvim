@@ -1,5 +1,3 @@
--- https://git.sr.ht/~whynothugo/lsp_lines.nvim
---
 -- Disable the plugin in Lazy.nvim
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "lazy",

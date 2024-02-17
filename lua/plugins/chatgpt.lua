@@ -1,4 +1,3 @@
--- https://github.com/jackMort/ChatGPT.nvim
 return {
     "jackMort/ChatGPT.nvim",
     dependencies = {

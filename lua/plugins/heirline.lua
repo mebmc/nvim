@@ -1,4 +1,3 @@
--- https://github.com/rebelot/heirline.nvim
 return {
     "rebelot/heirline.nvim",
     -- opts = function(_, opts)
