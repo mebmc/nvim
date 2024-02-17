@@ -1,4 +1,3 @@
--- https://github.com/dhruvmanila/browser-bookmarks.nvim
 return {
     "dhruvmanila/browser-bookmarks.nvim",
     dependencies = {

@@ -1,4 +1,3 @@
--- https://github.com/james1236/backseat.nvim
 return {
     "james1236/backseat.nvim",
     cmd = {

@@ -1,4 +1,3 @@
--- https://github.com/Saecki/crates.nvim
 return {
     "Saecki/crates.nvim",
     dependencies = {

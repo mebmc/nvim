@@ -1,4 +1,3 @@
---- https://github.com/laytan/cloak.nvim
 return {
     "laytan/cloak.nvim",
     event = {

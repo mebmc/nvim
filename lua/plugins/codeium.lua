@@ -1,4 +1,3 @@
--- https://github.com/jcdickinson/codeium.nvim
 return {
     "jcdickinson/codeium.nvim",
     dependencies = {
