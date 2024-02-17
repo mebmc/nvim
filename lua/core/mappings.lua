@@ -83,12 +83,13 @@ keymap.set("n", "]L", "<cmd>llast<cr>", { desc = "last location list item" })
 -- Vim-maximizer
 keymap.set("n", "<leader>sm", "<cmd>MaximizerToggle<CR>", { desc = "maximize tab" })
 
--- Neotree
+-- Explorer
 keymap.set("n", "<leader>ee", "<cmd>Neotree toggle<CR>", { desc = "toggle file explorer" })
 keymap.set("n", "<leader>ef", "<cmd>Neotree focus<CR>", { desc = "focus file explorer" })
 keymap.set("n", "<leader>el", "<cmd>Neotree left<CR>", { desc = "left explorer" })
 keymap.set("n", "<leader>er", "<cmd>Neotree right<CR>", { desc = "right explorer" })
 keymap.set("n", "<leader>eo", "<cmd>Oil<CR>", { desc = "oil" })
+keymap.set("n", "<leader><tab>", "<cmd>Oil<CR>", { desc = "oil" })
 
 -- Telescope
 keymap.set("n", "<C-o>", require("telescope.builtin").oldfiles, { desc = "old files" })
@@ -106,6 +107,18 @@ keymap.set("n", "<leader>fm", function() require("telescope.builtin").treesitter
   { desc = "treesitter methods" })
 keymap.set("n", "<leader>fs", "<cmd>Telescope neovim-project discover<CR>", { desc = "session list" })
 keymap.set("n", "<leader>fS", "<cmd>Telescope neovim-project history<CR>", { desc = "session history" })
+
+-- Terminal
+keymap.set("n", "<leader>rf", "<cmd>ToggleTerm direction=float<CR>", { desc = "term float" })
+keymap.set("n", "<leader>r\\", "<cmd>ToggleTerm direction=horizontal size=20<CR>", { desc = "term horizontal" })
+keymap.set("n", "<leader>r|", "<cmd>ToggleTerm direction=vertical size=80<CR>", { desc = "term vertical" })
+keymap.set("n", "<leader>rt", "<cmd>ToggleTerm<CR>", { desc = "term toggle" })
+-- keymap.set("n", "<leader>rb", "<cmd>ToggleTerm direction=horizontal size=20 dir=%:h<CR>", { desc = "term buf path" })
+keymap.set("n", "<leader>rw", "<cmd>!tmux splitw -l 20\\%<CR>", { silent = true, desc = "tmux working path" })
+keymap.set("n", "<leader>rW", "<cmd>!tmux splitw -l 50\\%<CR>", { silent = true, desc = "tmux working path" })
+keymap.set("n", "<leader>rb", "<cmd>!tmux splitw -l 20\\% -c %:h<CR>", { silent = true, desc = "tmux buf path" })
+keymap.set("n", "<leader>rB", "<cmd>!tmux splitw -l 50\\% -c %:h<CR>", { silent = true, desc = "tmux buf path" })
+
 
 -- -- Diff keymaps
 -- keymap.set("n", "<leader>cc", "<cmd>diffput<CR>", { desc = "put diff" })
@@ -158,8 +171,6 @@ vim.keymap.set("n", "<leader>glp", gitlab.pipeline, { desc = "gitlab pipeline" }
 vim.keymap.set("n", "<leader>glo", gitlab.open_in_browser, { desc = "gitlab open" })
 vim.keymap.set("n", "<leader>glM", gitlab.merge, { desc = "gitlab merge" })
 
-
-
 -- Harpoon
 keymap.set("n", "<leader>ha", require("harpoon.mark").add_file, { desc = "harpoon mark" })
 keymap.set("n", "<leader>hh", require("harpoon.ui").toggle_quick_menu, { desc = "harpoon menu" })
@@ -181,8 +192,8 @@ keymap.set("n", "<leader>pu", function() require("lazy").check() end, { desc = "
 keymap.set("n", "<leader>pU", function() require("lazy").update() end, { desc = "plugins Update" })
 
 -- Vim options
-keymap.set("n", "<leader>va", "<cmd>set formatoptions=tc<CR>", { desc = "enable auto format"})
-keymap.set("n", "<leader>vA", "<cmd>set formatoptions-=tc<CR>", { desc = "disable auto format"})
+keymap.set("n", "<leader>va", "<cmd>set formatoptions=tc<CR>", { desc = "enable auto format" })
+keymap.set("n", "<leader>vA", "<cmd>set formatoptions-=tc<CR>", { desc = "disable auto format" })
 
 -- Vim REST Console
 keymap.set("n", "<leader>xr", "<cmd>call VrcQuery()<CR>", { desc = "REST query" }) -- Run REST query

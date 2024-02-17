@@ -9,7 +9,9 @@ return {
         "TermExec"
     },
     opts = {
-        user_terminals = {}
+        user_terminals = {},
+        autochdir = true,
+        start_in_insert = true,
     },
     config = true
 }
