@@ -33,17 +33,19 @@ return {
         --     ["<leader>k"]     = { name = " User" },
         -- }
     },
-    config = function()
+    config = function(_, opts)
+        require('which-key').setup(opts)
+
         -- document existing key chains
         require('which-key').register {
             ['<leader>a'] = { name = 'ai', _ = 'which_key_ignore' },
-            ['<leader>ab'] = { name = 'Backseat', _ = 'which_key_ignore' },
-            ['<leader>ac'] = { name = 'Cody', _ = 'which_key_ignore' },
-            ['<leader>ad'] = { name = 'Codeium', _ = 'which_key_ignore' },
-            ['<leader>ag'] = { name = 'Gen', _ = 'which_key_ignore' },
-            ['<leader>an'] = { name = 'NeoAI', _ = 'which_key_ignore' },
-            ['<leader>ap'] = { name = 'Copilot', _ = 'which_key_ignore' },
-            ['<leader>at'] = { name = 'ChatGPT', _ = 'which_key_ignore' },
+            ['<leader>aB'] = { name = 'Backseat', _ = 'which_key_ignore' },
+            ['<leader>aC'] = { name = 'Cody', _ = 'which_key_ignore' },
+            ['<leader>aD'] = { name = 'Codeium', _ = 'which_key_ignore' },
+            ['<leader>aG'] = { name = 'Gen', _ = 'which_key_ignore' },
+            ['<leader>aN'] = { name = 'NeoAI', _ = 'which_key_ignore' },
+            ['<leader>aP'] = { name = 'Copilot', _ = 'which_key_ignore' },
+            ['<leader>aT'] = { name = 'ChatGPT', _ = 'which_key_ignore' },
             ['<leader>b'] = { name = 'buffers', _ = 'which_key_ignore' },
             ['<leader>c'] = { name = 'changes', _ = 'which_key_ignore' },
             ['<leader>d'] = { name = 'dap', _ = 'which_key_ignore' },
@@ -60,6 +62,7 @@ return {
             ['<leader>O'] = { name = 'obsidian', _ = 'which_key_ignore' },
             ['<leader>p'] = { name = 'packages', _ = 'which_key_ignore' },
             ['<leader>q'] = { name = 'quit', _ = 'which_key_ignore' },
+            ['<leader>r'] = { name = 'terminal', _ = 'which_key_ignore' },
             ['<leader>s'] = { name = 'split', _ = 'which_key_ignore' },
             ['<leader>t'] = { name = 'tabs', _ = 'which_key_ignore' },
             ['<leader>u'] = { name = 'user', _ = 'which_key_ignore' },
