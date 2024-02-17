@@ -36,6 +36,10 @@ keymap.set("i", "<M-\\>", "<cmd>TmuxNavigatePrevious<CR>", { desc = "navigate pr
 -- Buffer management
 
 keymap.set("n", "<leader>bq", "<cmd>bd<CR>", { desc = "quit buffer" })
+keymap.set("n", "[B", "<cmd>bfirst<CR>", { desc = "first buffer" })
+keymap.set("n", "[b", "<cmd>bprevious<CR>", { desc = "previous buffer" })
+keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "next buffer" })
+keymap.set("n", "]B", "<cmd>blast<CR>", { desc = "last buffer" })
 
 -- Tab management
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "open new tab" })
