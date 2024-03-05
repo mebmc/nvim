@@ -14,12 +14,12 @@ return {
         "ChatGPTRunCustomCode",
     },
     keys = {
-        { "<leader>att", "<cmd>ChatGPT<cr>", desc = " ChatGPT toggle" },
-        { "<leader>ata", "<cmd>ChatGPTActAs<cr>", desc = " ChatGPT ActAs" },
-        { "<leader>atae", "<cmd>ChatGPTEditWithInstructions<cr>", desc = " ChatGPT EditWith" },
-        { "<leader>atc", "<cmd>ChatGPTCompleteCode<cr>", desc = " ChatGPT Complete" },
+        { "<leader>aTt", "<cmd>ChatGPT<cr>", desc = " ChatGPT toggle" },
+        { "<leader>aTa", "<cmd>ChatGPTActAs<cr>", desc = " ChatGPT ActAs" },
+        { "<leader>aTae", "<cmd>ChatGPTEditWithInstructions<cr>", desc = " ChatGPT EditWith" },
+        { "<leader>aTc", "<cmd>ChatGPTCompleteCode<cr>", desc = " ChatGPT Complete" },
         {
-            "<leader>ago",
+            "<leader>aTo",
             function()
                 require("copilot.suggestion").toggle_auto_trigger()
             end,
