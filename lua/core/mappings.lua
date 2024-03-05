@@ -203,7 +203,7 @@ keymap.set("n", "<leader>vA", "<cmd>set formatoptions-=tc<CR>", { desc = "disabl
 keymap.set("n", "<leader>xr", "<cmd>call VrcQuery()<CR>", { desc = "REST query" }) -- Run REST query
 
 -- LSP
--- keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
+keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
 --
 -- keymap.set("n", "<leader>lg", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "hover" })
 -- keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
@@ -213,8 +213,8 @@ keymap.set("n", "<leader>xr", "<cmd>call VrcQuery()<CR>", { desc = "REST query" 
 -- keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "references" })
 -- keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "signature help" })
 -- keymap.set("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "rename" })
--- keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
--- keymap.set("v", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
+keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
+keymap.set("v", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
 -- keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "code action" })
 -- keymap.set("n", "<leader>ll", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "diagnostic open" })
 -- keymap.set("n", "<leader>lp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "diagnostic previous" })
@@ -223,6 +223,7 @@ keymap.set("n", "<leader>xr", "<cmd>call VrcQuery()<CR>", { desc = "REST query" 
 -- keymap.set("i", "<C-Space>", "<cmd>lua vim.lsp.buf.completion()<CR>", { desc = "completion" })
 
 -- LSP Saga
+keymap.set("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>",      { desc = "Lspsaga Line Diagnostics" })
 
 keymap.set("n", "<leader>lh", "<cmd>Lspsaga finder<cr>",                 { desc = "Lspsaga LSP Finder" })
 keymap.set("n", "<leader>lv", "<cmd>Lspsaga code_action<cr>",                { desc = "Lspsaga Code Action" })
