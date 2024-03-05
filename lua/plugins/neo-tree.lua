@@ -114,10 +114,4 @@ return {
       end,
     }
   },
-  config = function(_, opts)
-    -- Recommended settings to disable default netrw file explorer
-    vim.g.loaded = 1
-    vim.g.loaded_netrwPlugin = 1
-    require("neo-tree").setup(opts)
-  end
 }
