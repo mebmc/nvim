@@ -151,29 +151,29 @@ keymap.set("n", "<leader>gH", "<cmd>DiffviewFileHistory<CR>", { desc = "diffview
 -- Git-blame
 keymap.set("n", "<leader>gt", ":GitBlameToggle<CR>", { desc = "toggle git blame" })
 
--- GitLab
-local gitlab = require("gitlab")
--- local gitlab_server = require("gitlab.server")
-vim.keymap.set("n", "<leader>glr", gitlab.review, { desc = "gitlab review" })
-vim.keymap.set("n", "<leader>gls", gitlab.summary, { desc = "gitlab summary" })
-vim.keymap.set("n", "<leader>glA", gitlab.approve, { desc = "gitlab approve" })
-vim.keymap.set("n", "<leader>glR", gitlab.revoke, { desc = "gitlab revoke" })
-vim.keymap.set("n", "<leader>glc", gitlab.create_comment, { desc = "gitlab comment" })
-vim.keymap.set("v", "<leader>glc", gitlab.create_multiline_comment, { desc = "gitlab multilne comment" })
-vim.keymap.set("v", "<leader>glC", gitlab.create_comment_suggestion, { desc = "gitlab comment suggestion" })
-vim.keymap.set("n", "<leader>glO", gitlab.create_mr, { desc = "gitlab merge request" })
-vim.keymap.set("n", "<leader>glm", gitlab.move_to_discussion_tree_from_diagnostic, { desc = "gitlab move to discussions" })
-vim.keymap.set("n", "<leader>gln", gitlab.create_note, { desc = "gitlab note" })
-vim.keymap.set("n", "<leader>gld", gitlab.toggle_discussions, { desc = "gitlab toggle discussions" })
-vim.keymap.set("n", "<leader>glaa", gitlab.add_assignee, { desc = "gitlab add assignee" })
-vim.keymap.set("n", "<leader>glad", gitlab.delete_assignee, { desc = "gitlab delete assignee" })
-vim.keymap.set("n", "<leader>glla", gitlab.add_label, { desc = "gitlab add label" })
-vim.keymap.set("n", "<leader>glld", gitlab.delete_label, { desc = "gitlab delete label" })
-vim.keymap.set("n", "<leader>glra", gitlab.add_reviewer, { desc = "gitlab reviewer add" })
-vim.keymap.set("n", "<leader>glrd", gitlab.delete_reviewer, { desc = "gitlab reviewer delete" })
-vim.keymap.set("n", "<leader>glp", gitlab.pipeline, { desc = "gitlab pipeline" })
-vim.keymap.set("n", "<leader>glo", gitlab.open_in_browser, { desc = "gitlab open" })
-vim.keymap.set("n", "<leader>glM", gitlab.merge, { desc = "gitlab merge" })
+-- -- GitLab
+-- local gitlab = require("gitlab")
+-- -- local gitlab_server = require("gitlab.server")
+-- vim.keymap.set("n", "<leader>glr", gitlab.review, { desc = "gitlab review" })
+-- vim.keymap.set("n", "<leader>gls", gitlab.summary, { desc = "gitlab summary" })
+-- vim.keymap.set("n", "<leader>glA", gitlab.approve, { desc = "gitlab approve" })
+-- vim.keymap.set("n", "<leader>glR", gitlab.revoke, { desc = "gitlab revoke" })
+-- vim.keymap.set("n", "<leader>glc", gitlab.create_comment, { desc = "gitlab comment" })
+-- vim.keymap.set("v", "<leader>glc", gitlab.create_multiline_comment, { desc = "gitlab multilne comment" })
+-- vim.keymap.set("v", "<leader>glC", gitlab.create_comment_suggestion, { desc = "gitlab comment suggestion" })
+-- vim.keymap.set("n", "<leader>glO", gitlab.create_mr, { desc = "gitlab merge request" })
+-- vim.keymap.set("n", "<leader>glm", gitlab.move_to_discussion_tree_from_diagnostic, { desc = "gitlab move to discussions" })
+-- vim.keymap.set("n", "<leader>gln", gitlab.create_note, { desc = "gitlab note" })
+-- vim.keymap.set("n", "<leader>gld", gitlab.toggle_discussions, { desc = "gitlab toggle discussions" })
+-- vim.keymap.set("n", "<leader>glaa", gitlab.add_assignee, { desc = "gitlab add assignee" })
+-- vim.keymap.set("n", "<leader>glad", gitlab.delete_assignee, { desc = "gitlab delete assignee" })
+-- vim.keymap.set("n", "<leader>glla", gitlab.add_label, { desc = "gitlab add label" })
+-- vim.keymap.set("n", "<leader>glld", gitlab.delete_label, { desc = "gitlab delete label" })
+-- vim.keymap.set("n", "<leader>glra", gitlab.add_reviewer, { desc = "gitlab reviewer add" })
+-- vim.keymap.set("n", "<leader>glrd", gitlab.delete_reviewer, { desc = "gitlab reviewer delete" })
+-- vim.keymap.set("n", "<leader>glp", gitlab.pipeline, { desc = "gitlab pipeline" })
+-- vim.keymap.set("n", "<leader>glo", gitlab.open_in_browser, { desc = "gitlab open" })
+-- vim.keymap.set("n", "<leader>glM", gitlab.merge, { desc = "gitlab merge" })
 
 -- Harpoon
 keymap.set("n", "<leader>ha", require("harpoon.mark").add_file, { desc = "harpoon mark" })
@@ -275,3 +275,65 @@ keymap.set("n", "<leader>df", "<cmd>Telescope dap frames<cr>", { desc = "frames"
 keymap.set("n", "<leader>dh", "<cmd>Telescope dap commands<cr>", { desc = "commands" })
 keymap.set("n", "<leader>de", function() require("telescope.builtin").diagnostics({ default_text = ":E:" }) end,
   { desc = "diagnostics" })
+
+-- Copilot
+keymap.set("n", "<leader>ap", "<cmd>Copilot panel<CR>", { desc = "copilot panel" })
+-- keymap.set("n", "<leader>ab", ":CopilotChatBuffer ", { desc = "copilot chat buffer" })
+keymap.set("n", "<leader>ai", "<cmd>CopilotChatInPlace<CR>", { desc = "copilot chat in place" })
+keymap.set("n", "<leader>af", "<cmd>CopilotChatFixDiagnostic<CR>", { desc = "copilot fix diagnostic" })
+
+-- keymap.set("n", "<leader>ae", "<cmd>CopilotChatExplain<CR>", { desc = "copilot explain" })
+-- keymap.set("n", "<leader>ar", "<cmd>CopilotChatReview<CR>", { desc = "copilot review" })
+-- keymap.set("n", "<leader>at", "<cmd>CopilotChatTests<CR>", { desc = "copilot tests" })
+-- keymap.set("n", "<leader>aR", "<cmd>CopilotChatRefactor<CR>", { desc = "copilot refactor" })
+-- keymap.set("n", "<leader>aF", "<cmd>CopilotChatFixCode<CR>", { desc = "copilot fix code" })
+-- keymap.set("n", "<leader>ab", "<cmd>CopilotChatBetterNamings<CR>", { desc = "copilot better naming" })
+-- keymap.set("n", "<leader>ad", "<cmd>CopilotChatDocumentation<CR>", { desc = "copilot documentation" })
+-- keymap.set("n", "<leader>as", "<cmd>CopilotChatSummarize<CR>", { desc = "copilot summarize" })
+-- keymap.set("n", "<leader>aw", "<cmd>CopilotChatWording<CR>", { desc = "copilot wording" })
+-- keymap.set("n", "<leader>ac", "<cmd>CopilotChatConcise<CR>", { desc = "copilot concise" })
+
+keymap.set("n", "<leader>ab", ":CopilotChatBuffer ", { desc = "copilot visual" })
+keymap.set("n", "<leader>ae", "<cmd>CopilotChatBuffer Please explain how the preceding code block works.<CR>", { desc = "copilot explain" })
+keymap.set("n", "<leader>ar", "<cmd>CopilotChatBuffer Please review the preceding code and provide suggestions for improvement.<CR>", { desc = "copilot review" })
+keymap.set("n", "<leader>at", "<cmd>CopilotChatBuffer Please explain how the selected code works, then generate unit tests for it.<CR>", { desc = "copilot tests" })
+keymap.set("n", "<leader>aR", "<cmd>CopilotChatBuffer Please refactor the preceding code to improve its clarity and readability.<CR>", { desc = "copilot refactor" })
+keymap.set("n", "<leader>af", "<cmd>CopilotChatBuffer Please fix the preceding code to make it work as intended.<CR>", { desc = "copilot fix code" })
+keymap.set("n", "<leader>ab", "<cmd>CopilotChatBuffer Please provide better names for the preceding variables and functions.<CR>", { desc = "copilot better naming" })
+keymap.set("n", "<leader>ad", "<cmd>CopilotChatBuffer Please provide documentation for the preceding code.<CR>", { desc = "copilot documentation" })
+keymap.set("n", "<leader>aa", "<cmd>CopilotChatBuffer Please provide documentation for the preceding API using Swagger.<CR>", { desc = "copilot swagger api" })
+keymap.set("n", "<leader>aj", "<cmd>CopilotChatBuffer Please write JSDoc for the preceding API using Swagger.<CR>", { desc = "copilot swagger jsdoc" })
+keymap.set("n", "<leader>as", "<cmd>CopilotChatBuffer Please summarize the preceding text.<CR>", { desc = "copilot summarize" })
+keymap.set("n", "<leader>aS", "<cmd>CopilotChatBuffer Please correct any grammar and spelling errors in the preceding text.<CR>", { desc = "copilot spelling" })
+keymap.set("n", "<leader>aw", "<cmd>CopilotChatBuffer Please improve the grammar and wording of the preceding text.<CR>", { desc = "copilot wording" })
+keymap.set("n", "<leader>ac", "<cmd>CopilotChatBuffer Please rewrite the preceding text to make it more concise.<CR>", { desc = "copilot concise" })
+
+keymap.set("v", "<leader>av", ":CopilotChatVisual ", { desc = "copilot visual" })
+keymap.set("v", "<leader>ae", "<cmd>CopilotChatVisual Please explain how the preceding code block works.<CR>", { desc = "copilot explain" })
+keymap.set("v", "<leader>ar", "<cmd>CopilotChatVisual Please review the preceding code and provide suggestions for improvement.<CR>", { desc = "copilot review" })
+keymap.set("v", "<leader>at", "<cmd>CopilotChatVisual Please explain how the selected code works, then generate unit tests for it.<CR>", { desc = "copilot tests" })
+keymap.set("v", "<leader>aR", "<cmd>CopilotChatVisual Please refactor the preceding code to improve its clarity and readability.<CR>", { desc = "copilot refactor" })
+keymap.set("v", "<leader>af", "<cmd>CopilotChatVisual Please fix the preceding code to make it work as intended.<CR>", { desc = "copilot fix code" })
+keymap.set("v", "<leader>ab", "<cmd>CopilotChatVisual Please provide better names for the preceding variables and functions.<CR>", { desc = "copilot better naming" })
+keymap.set("v", "<leader>ad", "<cmd>CopilotChatVisual Please provide documentation for the preceding code.<CR>", { desc = "copilot documentation" })
+keymap.set("v", "<leader>aa", "<cmd>CopilotChatVisual Please provide documentation for the preceding API using Swagger.<CR>", { desc = "copilot swagger api" })
+keymap.set("v", "<leader>aj", "<cmd>CopilotChatVisual Please write JSDoc for the preceding API using Swagger.<CR>", { desc = "copilot swagger jsdoc" })
+keymap.set("v", "<leader>as", "<cmd>CopilotChatVisual Please summarize the preceding text.<CR>", { desc = "copilot summarize" })
+keymap.set("v", "<leader>aS", "<cmd>CopilotChatVisual Please correct any grammar and spelling errors in the preceding text.<CR>", { desc = "copilot spelling" })
+keymap.set("v", "<leader>aw", "<cmd>CopilotChatVisual Please improve the grammar and wording of the preceding text.<CR>", { desc = "copilot wording" })
+keymap.set("v", "<leader>ac", "<cmd>CopilotChatVisual Please rewrite the preceding text to make it more concise.<CR>", { desc = "copilot concise" })
+
+-- Explain = "Please explain how the following code works.",
+-- Review = "Please review the following code and provide suggestions for improvement.",
+-- Tests = "Please explain how the selected code works, then generate unit tests for it.",
+-- Refactor = "Please refactor the following code to improve its clarity and readability.",
+-- FixCode = "Please fix the following code to make it work as intended.",
+-- BetterNamings = "Please provide better names for the following variables and functions.",
+-- Documentation = "Please provide documentation for the following code.",
+-- SwaggerApiDocs = "Please provide documentation for the following API using Swagger.",
+-- SwaggerJsDocs = "Please write JSDoc for the following API using Swagger.",
+-- -- Text-related prompts
+-- Summarize = "Please summarize the following text.",
+-- Spelling = "Please correct any grammar and spelling errors in the following text.",
+-- Wording = "Please improve the grammar and wording of the following text.",
+-- Concise = "Please rewrite the following text to make it more concise.",
