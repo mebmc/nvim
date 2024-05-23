@@ -15,7 +15,7 @@ opt.autoindent = true
 vim.bo.softtabstop = 4
 
 -- Line Wrapping
-opt.wrap = false
+opt.wrap = true
 
 -- Search Settings
 opt.ignorecase = true
@@ -58,4 +58,4 @@ opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
 
 -- Guides
 opt.colorcolumn = "120,160"
-opt.textwidth = 119
+opt.textwidth = 0
