@@ -4,6 +4,7 @@ return {
     'nvim-tree/nvim-web-devicons',    -- fancy icons
     'linrongbin16/lsp-progress.nvim', -- LSP loading progress
     'AndreM222/copilot-lualine',
+    'letieu/harpoon-lualine'
   },
   opts = {
     options = {
@@ -25,10 +26,14 @@ return {
           symbols = {
             modified = '[+]', -- Text to show when the file is modified.
             readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
-          }
+          },
         }
       },
       lualine_x = {
+        {
+          'harpoon2',
+          separator = " ",
+        },
         {
           'copilot',
           -- Default values
@@ -57,7 +62,7 @@ return {
         },
         'encoding',
         'fileformat',
-        'filetype'
+        'filetype',
       }
     }
   }
