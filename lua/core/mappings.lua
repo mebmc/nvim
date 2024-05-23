@@ -36,6 +36,8 @@ keymap.set("i", "<M-\\>", "<cmd>TmuxNavigatePrevious<CR>", { desc = "navigate pr
 -- Buffer management
 
 keymap.set("n", "<leader>bq", "<cmd>bd<CR>", { desc = "quit buffer" })
+keymap.set("n", "<leader>bQ", "<cmd>bd!<CR>", { desc = "force quit buffer" })
+keymap.set("n", "<leader>bn", "<cmd>enew<CR>", { desc = "new buffer" })
 keymap.set("n", "[B", "<cmd>bfirst<CR>", { desc = "first buffer" })
 keymap.set("n", "[b", "<cmd>bprevious<CR>", { desc = "previous buffer" })
 keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "next buffer" })
@@ -176,17 +178,35 @@ keymap.set("n", "<leader>gt", ":GitBlameToggle<CR>", { desc = "toggle git blame"
 -- vim.keymap.set("n", "<leader>glM", gitlab.merge, { desc = "gitlab merge" })
 
 -- Harpoon
-keymap.set("n", "<leader>ha", require("harpoon.mark").add_file, { desc = "harpoon mark" })
-keymap.set("n", "<leader>hh", require("harpoon.ui").toggle_quick_menu, { desc = "harpoon menu" })
-keymap.set("n", "<leader>h1", function() require("harpoon.ui").nav_file(1) end, { desc = "jump 1" })
-keymap.set("n", "<leader>h2", function() require("harpoon.ui").nav_file(2) end, { desc = "jump 2" })
-keymap.set("n", "<leader>h3", function() require("harpoon.ui").nav_file(3) end, { desc = "jump 3" })
-keymap.set("n", "<leader>h4", function() require("harpoon.ui").nav_file(4) end, { desc = "jump 4" })
-keymap.set("n", "<leader>h5", function() require("harpoon.ui").nav_file(5) end, { desc = "jump 5" })
-keymap.set("n", "<leader>h6", function() require("harpoon.ui").nav_file(6) end, { desc = "jump 6" })
-keymap.set("n", "<leader>h7", function() require("harpoon.ui").nav_file(7) end, { desc = "jump 7" })
-keymap.set("n", "<leader>h8", function() require("harpoon.ui").nav_file(8) end, { desc = "jump 8" })
-keymap.set("n", "<leader>h9", function() require("harpoon.ui").nav_file(9) end, { desc = "jump 9" })
+local harpoon = require("harpoon")
+keymap.set("n", "<leader>h", function() harpoon:list():add() end, { desc = "harpoon mark" })
+-- keymap.set("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "harpoon menu" })
+keymap.set("n", "<leader><cr>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "harpoon menu" })
+keymap.set("n", "<leader>j", function() harpoon:list():select(1) end, { desc = "jump j" })
+keymap.set("n", "<leader>k", function() harpoon:list():select(2) end, { desc = "jump k" })
+keymap.set("n", "<leader>1", function() harpoon:list():select(3) end, { desc = "jump 1" })
+keymap.set("n", "<leader>2", function() harpoon:list():select(4) end, { desc = "jump 2" })
+keymap.set("n", "<leader>3", function() harpoon:list():select(5) end, { desc = "jump 3" })
+keymap.set("n", "<leader>4", function() harpoon:list():select(6) end, { desc = "jump 4" })
+keymap.set("n", "<leader>5", function() harpoon:list():select(7) end, { desc = "jump 5" })
+
+-- Zk notes
+keymap.set("n", "<leader>nf", "<cmd>ZkNotes { excludeHrefs = { 'daily/', 'weekly/', 'monthly/' } } <CR>", { desc = "find notes" })
+keymap.set("n", "<leader>nF", "<cmd>ZkNotes<CR>", { desc = "find all notes" })
+keymap.set("n", "<leader>nn", "<cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", { desc = "new note" })
+keymap.set("n", "<leader>nb", "<cmd>ZkBacklinks<CR>", { desc = "note backlinks" })
+keymap.set("n", "<leader>nl", "<cmd>ZkLinks<CR>", { desc = "note links" })
+keymap.set("n", "<leader>ni", "<cmd>ZkInsertLink<CR>", { desc = "insert link" })
+keymap.set("n", "<leader>nt", "<cmd>ZkTags<CR>", { desc = "note tags" })
+
+keymap.set("n", "<leader>nd", function() require("zk.commands").get("ZkNew")({ dir = "daily" }) end, { desc = "open daily" })
+keymap.set("n", "<leader>nD", "<cmd>ZkNotes { tags = { 'daily' } }<CR>", { desc = "find daily" })
+
+keymap.set("n", "<leader>nw", function() require("zk.commands").get("ZkNew")({ dir = "weekly" }) end, { desc = "open weekly" })
+keymap.set("n", "<leader>nW", "<cmd>ZkNotes { tags = { 'weekly' } }<CR>", { desc = "find weekly" })
+
+keymap.set("n", "<leader>nm", function() require("zk.commands").get("ZkNew")({ dir = "monthly" }) end, { desc = "open monthly" })
+keymap.set("n", "<leader>nM", "<cmd>ZkNotes { tags = { 'monthly' } }<CR>", { desc = "find monthly" })
 
 -- Plugin Manager
 keymap.set("n", "<leader>pi", function() require("lazy").install() end, { desc = "plugins Install" })
@@ -194,6 +214,7 @@ keymap.set("n", "<leader>ps", function() require("lazy").home() end, { desc = "p
 keymap.set("n", "<leader>pS", function() require("lazy").sync() end, { desc = "plugins Sync" })
 keymap.set("n", "<leader>pu", function() require("lazy").check() end, { desc = "plugins Check Updates" })
 keymap.set("n", "<leader>pU", function() require("lazy").update() end, { desc = "plugins Update" })
+keymap.set("n", "<leader>pm", "<cmd>Mason<CR>", { desc = "mason Status" })
 
 -- Vim options
 keymap.set("n", "<leader>va", "<cmd>set formatoptions=tc<CR>", { desc = "enable auto format" })
@@ -337,3 +358,11 @@ keymap.set("v", "<leader>ac", "<cmd>CopilotChatVisual Please rewrite the precedi
 -- Spelling = "Please correct any grammar and spelling errors in the following text.",
 -- Wording = "Please improve the grammar and wording of the following text.",
 -- Concise = "Please rewrite the following text to make it more concise.",
+
+vim.keymap.set("n", "<Leader><Esc>", function()
+  vim.fn.setreg("/", "")
+end, {
+  desc = "Clear 'hlsearch'",
+  silent = true,
+  noremap = true,
+})
