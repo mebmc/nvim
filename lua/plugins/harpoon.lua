@@ -1,6 +1,6 @@
 return {
   'ThePrimeagen/harpoon',
-  branch = 'master',
+  branch = 'harpoon2',
   event = 'VeryLazy',
   dependencies = {
     -- https://github.com/nvim-lua/plenary.nvim
