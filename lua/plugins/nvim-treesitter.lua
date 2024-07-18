@@ -97,7 +97,6 @@ return {
             'jsonc',
             'jsonnet',
             'kdl',
-            'latex',
             'llvm',
             'lua',
             'luadoc',
