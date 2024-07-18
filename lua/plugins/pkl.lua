@@ -1,3 +1,0 @@
-return {
-    "apple/pkl-neovim",
-}
