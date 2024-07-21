@@ -96,6 +96,7 @@ keymap.set("n", "<leader>el", "<cmd>Neotree left<CR>", { desc = "left explorer" 
 keymap.set("n", "<leader>er", "<cmd>Neotree right<CR>", { desc = "right explorer" })
 keymap.set("n", "<leader>eo", "<cmd>Oil<CR>", { desc = "oil" })
 keymap.set("n", "<leader><tab>", "<cmd>Oil<CR>", { desc = "oil" })
+keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "oil" })
 
 -- Telescope
 keymap.set("n", "<C-o>", require("telescope.builtin").oldfiles, { desc = "old files" })
@@ -124,6 +125,11 @@ keymap.set("n", "<leader>rw", "<cmd>!tmux splitw -l 20\\%<CR>", { silent = true,
 keymap.set("n", "<leader>rW", "<cmd>!tmux splitw -l 50\\%<CR>", { silent = true, desc = "tmux working path" })
 keymap.set("n", "<leader>rb", "<cmd>!tmux splitw -l 20\\% -c %:h<CR>", { silent = true, desc = "tmux buf path" })
 keymap.set("n", "<leader>rB", "<cmd>!tmux splitw -l 50\\% -c %:h<CR>", { silent = true, desc = "tmux buf path" })
+
+-- Updated
+keymap.set("n", "<leader>\\", "<cmd>!tmux splitw -l 30\\% -c %:h<CR>", { silent = true, desc = "term horizontal" })
+keymap.set("n", "<leader>|", "<cmd>!tmux splitw -h -l 30\\% -c %:h<CR>", { silent = true, desc = "term vertical" })
+keymap.set("n", "<leader><C-\\>", "<cmd>ToggleTerm direction=float<CR>", { desc = "term float" })
 
 
 -- -- Diff keymaps
