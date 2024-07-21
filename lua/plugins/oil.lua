@@ -74,6 +74,11 @@ return {
       ["gx"] = "actions.open_external",
       ["g."] = "actions.toggle_hidden",
       ["g\\"] = "actions.toggle_trash",
+      ["<Space>\\"] = function() vim.cmd("!tmux splitw -l 20\\% -c " .. require("oil").get_current_dir()) end,
+      ["<Space>|"] = function() vim.cmd("!tmux splitw -h -l 40\\% -c " .. require("oil").get_current_dir()) end,
+      ["<Space><C-\\>"] = function() vim.cmd("ToggleTerm direction=float --dir " .. require("oil").get_current_dir()) end,
+
+-- keymap.set("n", "<leader>rf", "<cmd>ToggleTerm direction=float<CR>", { desc = "term float" })
     },
     -- Configuration for the floating keymaps help window
     keymaps_help = {
