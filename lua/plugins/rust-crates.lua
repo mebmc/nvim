@@ -9,7 +9,7 @@ return {
 
         local wk = require("which-key")
 
-        wk.register({
+        wk.add({
             ["<leader>lC"] = {
                 name = "󱘗 Cargo"
             }
