@@ -47,3 +47,5 @@ usr
 wget
 yaml
 zsh
+autocmds
+plugins
