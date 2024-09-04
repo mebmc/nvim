@@ -9,11 +9,11 @@ return {
 
         local wk = require("which-key")
 
-        wk.add({
-            ["<leader>lC"] = {
-                name = "󱘗 Cargo"
-            }
-        })
+        -- wk.add({
+        --     ["<leader>lC"] = {
+        --         name = "󱘗 Cargo"
+        --     }
+        -- })
 
         -- Crates mappings:
         local map = vim.api.nvim_set_keymap
