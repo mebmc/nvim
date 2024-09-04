@@ -26,9 +26,7 @@ return {
         'docker_compose_language_service',
         'dockerls',
         'gopls',
-        'gradle_ls',
         'graphql',
-        'groovyls',
         'helm_ls',
         'html', -- requires npm to be installed
         'intelephense', -- requires npm to be installed
