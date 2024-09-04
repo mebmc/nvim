@@ -25,6 +25,8 @@ keymap.set("n", "<leader>ut", "<cmd>TroubleToggle<cr>", { desc = "toggle trouble
 keymap.set("n", "<leader>uT", "<cmd>TransparentToggle<cr>", { desc = "toggle transparent" })
 keymap.set("n", "<leader>uz", "<cmd>Twilight<cr>", { desc = "toggle twilight" })
 keymap.set("n", "<leader>uZ", "<cmd>ZenMode<cr>", { desc = "toggle zenmode" })
+keymap.set("n", "<leader>us", "<cmd>set scrollbind<cr>", { desc = "set scrollbind" })
+keymap.set("n", "<leader>uS", "<cmd>set noscrollbind<cr>", { desc = "stop scrollbind" })
 
 -- Tmux navigator
 keymap.set("n", "<M-h>", "<cmd>TmuxNavigateLeft<CR>", { desc = "navigate left" })
