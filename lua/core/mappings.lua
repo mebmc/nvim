@@ -7,9 +7,14 @@ local keymap = vim.keymap
 keymap.set("i", "jk", "<ESC>", { desc = "exit insert mode" })
 keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "save" })
 keymap.set("n", "<leader>wq", "<cmd>wq<CR>", { desc = "save and quit" })
+keymap.set("n", "<leader>wb", "<cmd>w<CR><cmd>bd<CR>", { desc = "save and close buffer" })
 keymap.set("n", "<leader>qq", "<cmd>q<CR>", { desc = "quit" })
 keymap.set("n", "<leader>qQ", "<cmd>q!<CR>", { desc = "force quit" })
+keymap.set("n", "<leader>qb", "<cmd>bd<CR>", { desc = "quit buffer" })
 keymap.set("n", "gx", "<cmd>!open <c-r><c-a><CR>", { desc = "open URL under cursor" })
+keymap.set("n", "gb", "<cmd>bprev<CR>", { desc = "previous buffer" })
+keymap.set("n", "gB", "<cmd>bnext<CR>", { desc = "next buffer" })
+-- keymap.set("n", "gq", "<cmd>bd<CR>", { desc = "close buffer" })
 
 -- User maps
 keymap.set("n", "<leader>u2", "<cmd>set autoindent expandtab tabstop=2 shiftwidth=2<cr>", { desc = "tab size 2" })
@@ -231,6 +236,7 @@ keymap.set("n", "<leader>xr", "<cmd>call VrcQuery()<CR>", { desc = "REST query" 
 
 -- LSP
 keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
+keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "definition" })
 --
 -- keymap.set("n", "<leader>lg", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "hover" })
 -- keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
