@@ -13,7 +13,7 @@ return {
         automatic_installation = true,
         ensure_installed = {
             "black",
-            "gitlint",
+            -- "gitlint",
             "jsonlint",
             "jq",
             "rustfmt",
