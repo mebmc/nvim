@@ -18,3 +18,16 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+-- YAML
+
+vim.cmd([[autocmd BufRead,BufNewFile *.yaml,*.yml set filetype=yaml]])
+vim.cmd([[autocmd BufRead,BufNewFile *.gitlab-ci.yaml,*.gitlab-ci.yml set filetype=yaml.gitlab]])
+
+-- Terraform
+
+vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
+vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
