@@ -59,3 +59,8 @@ opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
 -- Guides
 opt.colorcolumn = "120,160"
 opt.textwidth = 0
+
+-- Spell
+opt.spell = true
+opt.spelllang = "en_gb"
+
