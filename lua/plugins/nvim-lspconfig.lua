@@ -27,12 +27,10 @@ return {
         'dockerls',
         'gopls',
         'graphql',
-        'helm_ls',
         'html', -- requires npm to be installed
         'intelephense', -- requires npm to be installed
         'jqls',
         'jsonls', -- requires npm to be installed
-        'lemminx',
         'lua_ls',
         'marksman',
         'pyre',
@@ -40,12 +38,10 @@ return {
         'quick_lint_js',
         'ruff_lsp',
         'solidity',
-        'sqlls',
         'terraformls',
         'tsserver', -- requires npm to be installed
         'vimls',
         'yamlls', -- requires npm to be installed
-        'zls',
       }
     })
 
