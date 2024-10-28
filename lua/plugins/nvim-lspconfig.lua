@@ -32,7 +32,7 @@ return {
         'intelephense', -- requires npm to be installed
         'jqls',
         'jsonls', -- requires npm to be installed
-        'lemminx',
+        -- 'lemminx',
         -- 'lua_ls',
         'marksman',
         'pyre',
