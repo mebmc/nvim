@@ -25,18 +25,20 @@ return {
         'cssls', -- requires npm to be installed
         'docker_compose_language_service',
         'dockerls',
-        'gopls',
+        -- 'gopls',
+        -- 'gradle_ls',
         'graphql',
         'html', -- requires npm to be installed
         'intelephense', -- requires npm to be installed
         'jqls',
         'jsonls', -- requires npm to be installed
-        'lua_ls',
+        'lemminx',
+        -- 'lua_ls',
         'marksman',
         'pyre',
         'pyright',
         'quick_lint_js',
-        'ruff_lsp',
+        -- 'ruff_lsp',
         'solidity',
         'terraformls',
         'tsserver', -- requires npm to be installed
