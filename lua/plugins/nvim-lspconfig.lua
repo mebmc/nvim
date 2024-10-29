@@ -41,7 +41,7 @@ return {
         -- 'ruff_lsp',
         'solidity',
         'terraformls',
-        'tsserver', -- requires npm to be installed
+        -- 'tsserver', -- requires npm to be installed
         'vimls',
         'yamlls', -- requires npm to be installed
       }
