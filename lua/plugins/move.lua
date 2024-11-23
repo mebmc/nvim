@@ -12,16 +12,12 @@ return {
         "BufNewFile"
     },
     keys = {
-        { "<A-S-j>",    "<cmd>MoveLine(1)<CR>",    mode = "n" },
-        { "<A-S-k>",    "<cmd>MoveLine(-1)<CR>",   mode = "n" },
-        { "<A-S-h>",    "<cmd>MoveHChar(-1)<CR>",  mode = "n" },
-        { "<A-S-l>",    "<cmd>MoveHChar(1)<CR>",   mode = "n" },
+        { "<A-S-j>",    "<cmd>MoveLine(1)<CR>",    mode = { "n", "v" } },
+        { "<A-S-k>",    "<cmd>MoveLine(-1)<CR>",   mode = { "n", "v" } },
+        { "<A-S-h>",    "<cmd>MoveHChar(-1)<CR>",  mode = { "n", "v" } },
+        { "<A-S-l>",    "<cmd>MoveHChar(1)<CR>",   mode = { "n", "v" } },
         { "<leader>wf", "<cmd>MoveWord(1)<CR>",    mode = "x" },
         { "<leader>wb", "<cmd>MoveWord(-1)<CR>",   mode = "x" },
-        { "<A-S-j>",    "<cmd>MoveBlock(1)<CR>",   mode = "v" },
-        { "<A-S-k>",    "<cmd>MoveBlock(-1)<CR>",  mode = "v" },
-        { "<A-S-h>",    "<cmd>MoveHBlock(-1)<CR>", mode = "v" },
-        { "<A-S-l>",    "<cmd>MoveHBlock(1)<CR>",  mode = "v" },
     }
 }
 
