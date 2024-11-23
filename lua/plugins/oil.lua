@@ -2,6 +2,15 @@ return {
   'stevearc/oil.nvim',
   -- Optional dependencies
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  lazy = false,
+  keys = {
+    {
+      "-",
+      desc = "Oil",
+      mode = { "n", "v" },
+      "<cmd>Oil<cr>",
+    },
+  },
   opts = {
     -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
     -- Set to false if you still want to use netrw.
@@ -78,7 +87,7 @@ return {
       ["<Space>|"] = function() vim.cmd("!tmux splitw -h -l 40\\% -c " .. require("oil").get_current_dir()) end,
       ["<Space><C-\\>"] = function() vim.cmd("ToggleTerm direction=float --dir " .. require("oil").get_current_dir()) end,
 
--- keymap.set("n", "<leader>rf", "<cmd>ToggleTerm direction=float<CR>", { desc = "term float" })
+      -- keymap.set("n", "<leader>rf", "<cmd>ToggleTerm direction=float<CR>", { desc = "term float" })
     },
     -- Configuration for the floating keymaps help window
     keymaps_help = {
