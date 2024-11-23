@@ -38,7 +38,7 @@ return {
         'pyre',
         'pyright',
         'quick_lint_js',
-        -- 'ruff_lsp',
+        'ruff',
         'solidity',
         'terraformls',
         -- 'tsserver', -- requires npm to be installed
