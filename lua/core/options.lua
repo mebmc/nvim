@@ -30,6 +30,7 @@ opt.background = "dark"
 opt.signcolumn = "yes"
 vim.diagnostic.config {
   float = { border = "rounded" }, -- add border to diagnostic popups
+  virtual_text = false,
 }
 
 -- Backspace
