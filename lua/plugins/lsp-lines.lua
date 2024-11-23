@@ -16,24 +16,24 @@ return {
         -- require("lsp_lines").toggle() -- Comment to disable on startup
         local previously = not require("lsp_lines").toggle()
 
-        local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
-        vim.api.nvim_create_autocmd("InsertEnter", {
-            group = group,
-            callback = function()
-                previously = not require("lsp_lines").toggle()
-                if not previously then
-                    require("lsp_lines").toggle()
-                end
-            end,
-        })
+        -- local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
+        -- vim.api.nvim_create_autocmd("InsertEnter", {
+        --     group = group,
+        --     callback = function()
+        --         previously = not require("lsp_lines").toggle()
+        --         if not previously then
+        --             require("lsp_lines").toggle()
+        --         end
+        --     end,
+        -- })
 
-        vim.api.nvim_create_autocmd("InsertLeave", {
-            group = group,
-            callback = function()
-                if require("lsp_lines").toggle() ~= previously then
-                    require("lsp_lines").toggle()
-                end
-            end,
-        })
+        -- vim.api.nvim_create_autocmd("InsertLeave", {
+        --     group = group,
+        --     callback = function()
+        --         if require("lsp_lines").toggle() ~= previously then
+        --             require("lsp_lines").toggle()
+        --         end
+        --     end,
+        -- })
     end,
 }
