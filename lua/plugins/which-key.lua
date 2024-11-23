@@ -20,7 +20,6 @@ return {
         require('which-key').add({
             { "<leader>L",  group = "location list" },
             { "<leader>O",  group = "obsidian" },
-            { "<leader>a",  group = "ai" },
             { "<leader>b",  group = "buffers" },
             { "<leader>d",  group = "dap" },
             { "<leader>e",  group = "explorer" },
