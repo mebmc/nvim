@@ -1,6 +1,9 @@
 return {
   'diepm/vim-rest-console',
   event = 'VeryLazy',
+  keys = {
+    { "<leader>xr", desc = "REST query", mode = "n", "<cmd>call VrcQuery()<CR>" },
+  },
   config = function ()
     -- Turn off the default key binding
     vim.g.vrc_set_default_mapping = 0

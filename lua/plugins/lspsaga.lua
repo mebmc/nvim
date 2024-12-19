@@ -6,6 +6,30 @@ return {
         --Please make sure you install markdown and markdown_inline parser
         { "nvim-treesitter/nvim-treesitter" }
     },
+    keys = {
+        { "gl",         "<cmd>Lspsaga show_line_diagnostics<cr>",      desc = "line diagnostics" },
+        { "<leader>ch", "<cmd>Lspsaga finder<cr>",                     desc = "lsp finder" },
+        { "<leader>cv", "<cmd>Lspsaga code_action<cr>",                desc = "code action" },
+        { "<leader>cr", "<cmd>Lspsaga rename<cr>",                     desc = "rename" },
+        { "<leader>cR", "<cmd>Lspsaga rename ++project<cr>",           desc = "rename project" },
+        { "<leader>cd", "<cmd>Lspsaga peek_definition<cr>",            desc = "peak definition" },
+        { "<leader>cD", "<cmd>Lspsaga goto_definition<cr>",            desc = "goto definition" },
+        { "<leader>ct", "<cmd>Lspsaga peek_type_definition<cr>",       desc = "peak type def" },
+        { "<leader>cT", "<cmd>Lspsaga goto_type_definition<cr>",       desc = "goto type def" },
+        { "<leader>cl", "<cmd>Lspsaga show_line_diagnostics<cr>",      desc = "line diagnostics" },
+        { "<leader>cb", "<cmd>Lspsaga show_buf_diagnostics<cr>",       desc = "buf diagnostics" },
+        { "<leader>cw", "<cmd>Lspsaga show_workspace_diagnostics<cr>", desc = "workspace diagnostics" },
+        { "<leader>cC", "<cmd>Lspsaga show_cursor_diagnostics<cr>",    desc = "cursor diagnostics" },
+        { "<leader>co", "<cmd>Lspsaga outline<cr>",                    desc = "outline" },
+        { "<leader>ck", "<cmd>Lspsaga hover_doc<cr>",                  desc = "hover doc" },
+        { "<leader>cK", "<cmd>Lspsaga hover_doc ++keep<cr>",           desc = "hover doc (Keep)" },
+        { "<leader>cI", "<cmd>Lspsaga incoming_calls<cr>",             desc = "incoming calls" },
+        { "<leader>cO", "<cmd>Lspsaga outgoing_calls<cr>",             desc = "outgoing calls" },
+        { "<leader>ct", "<cmd>Lspsaga term_toggle<cr>",                desc = "term toggle" },
+        { "[e",         "<cmd>Lspsaga diagnostic_jump_prev<cr>",       desc = "diagnostic jump" },
+        { "]e",         "<cmd>Lspsaga diagnostic_jump_next<cr>",       desc = "diagnostics jump" },
+    },
+
     config = function()
         require("lspsaga").setup({
             definition = {
