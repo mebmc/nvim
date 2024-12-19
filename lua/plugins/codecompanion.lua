@@ -8,19 +8,19 @@ return {
     { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } }, -- Optional: For prettier markdown rendering
     { "stevearc/dressing.nvim",                    opts = {} },                            -- Optional: Improves `vim.ui.select`
   },
-  lazy = false,
+  event = "VeryLazy",
   config = true,
   keys = {
     {
-      "<leader>a",
+      "<leader>ca",
       desc = "CC Actions",
       mode = { "n", "v" },
       "<cmd>CodeCompanionActions<cr>",
     },
     {
-      "<leader>c",
+      "<leader>cC",
       desc = "CC Chat",
-      mode = { "n", "v" },
+      mode = { "v", "n" },
       "<cmd>CodeCompanionChat Toggle<cr>",
     },
     { "ga", desc = "CC Chat Add", mode = "v", "<cmd>CodeCompanionChat Add<cr>" },
@@ -29,36 +29,10 @@ return {
     strategies = {
       chat = {
         adapter = "copilot",
-        -- adapter = "ollama",
       },
       inline = {
-        adapter = "copilot",
-        -- adapter = "ollama",
-      },
-    },
-
-    adapters = {
-      ollama = function()
-        return require("codecompanion.adapters").extend("ollama", {
-          env = {
-            url = "http://kelso:11434",
-          },
-          headers = {
-            ["Content-Type"] = "application/json",
-          },
-          parameters = {
-            sync = true,
-          },
-          schema = {
-            model = {
-              default = "smollm2:1.7b"
-            }
-          }
-        })
-      end,
-      opts = {
-        allow_insecure = true,
+        adapter = "copilot"
       }
-    },
+    }
   },
 }

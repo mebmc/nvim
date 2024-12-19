@@ -42,7 +42,7 @@ return {
     -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
     delete_to_trash = false,
     -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
-    skip_confirm_for_simple_edits = false,
+    skip_confirm_for_simple_edits = true,
     -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
     -- (:help prompt_save_on_select_new_entry)
     prompt_save_on_select_new_entry = true,
@@ -53,13 +53,19 @@ return {
     -- Set to true to autosave buffers that are updated with LSP willRenameFiles
     -- Set to "unmodified" to only save unmodified buffers
     lsp_file_methods = {
+      -- Enable or disable LSP file operations
+      enabled = false,
+      -- Time to wait for LSP file operations to complete before skipping
+      timeout_ms = 1000,
+      -- Set to true to autosave buffers that are updated with LSP willRenameFiles
+      -- Set to "unmodified" to only save unmodified buffers
       autosave_changes = false
     },
     -- Constrain the cursor to the editable parts of the oil buffer
     -- Set to `false` to disable, or "name" to keep it on the file names
-    constrain_cursor = "editable",
+    constrain_cursor = "name",
     -- Set to true to watch the filesystem for changes and reload oil
-    experimental_watch_for_changes = false,
+    watch_for_changes = true,
     -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
     -- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
     -- Additionally, if it is a string that matches "actions.<name>",
@@ -68,10 +74,12 @@ return {
     -- See :help oil-actions for a list of all available actions
     keymaps = {
       ["g?"] = "actions.show_help",
+      ["<ESC>"] = "actions.close",
       ["<CR>"] = "actions.select",
+      ["<C-q>"] = "actions.send_to_qflist",
       ["<C-s>"] = "actions.select_vsplit",
       ["<C-h>"] = "actions.select_split",
-      ["<C-t>"] = "actions.select_tab",
+      ["<C-t>"] = {"actions.select", opts = {tab = true, close = true}},
       ["<C-p>"] = "actions.preview",
       ["<C-c>"] = "actions.close",
       ["<C-l>"] = "actions.refresh",
