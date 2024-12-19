@@ -117,7 +117,6 @@ keymap.set("n", "<leader>\\", "<cmd>!tmux splitw -l 30\\% -c %:h<CR>", { silent 
 keymap.set("n", "<leader>|", "<cmd>!tmux splitw -h -l 30\\% -c %:h<CR>", { silent = true, desc = "term vertical" })
 keymap.set("n", "<leader><C-\\>", "<cmd>ToggleTerm direction=float<CR>", { desc = "term float" })
 
-
 -- -- Diff keymaps
 -- keymap.set("n", "<leader>cc", "<cmd>diffput<CR>", { desc = "put diff" })
 -- keymap.set("n", "<leader>cj", "<cmd>diffget 1<CR>", { desc = "get diff from left" })
@@ -145,24 +144,6 @@ keymap.set("n", "<leader>gH", "<cmd>DiffviewFileHistory<CR>", { desc = "diffview
 -- Git-blame
 keymap.set("n", "<leader>gt", ":GitBlameToggle<CR>", { desc = "toggle git blame" })
 
--- Zk notes
-keymap.set("n", "<leader>nf", "<cmd>ZkNotes { excludeHrefs = { 'daily/', 'weekly/', 'monthly/' } } <CR>", { desc = "find notes" })
-keymap.set("n", "<leader>nF", "<cmd>ZkNotes<CR>", { desc = "find all notes" })
-keymap.set("n", "<leader>nn", "<cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", { desc = "new note" })
-keymap.set("n", "<leader>nb", "<cmd>ZkBacklinks<CR>", { desc = "note backlinks" })
-keymap.set("n", "<leader>nl", "<cmd>ZkLinks<CR>", { desc = "note links" })
-keymap.set("n", "<leader>ni", "<cmd>ZkInsertLink<CR>", { desc = "insert link" })
-keymap.set("n", "<leader>nt", "<cmd>ZkTags<CR>", { desc = "note tags" })
-
-keymap.set("n", "<leader>nd", function() require("zk.commands").get("ZkNew")({ dir = "daily" }) end, { desc = "open daily" })
-keymap.set("n", "<leader>nD", "<cmd>ZkNotes { tags = { 'daily' } }<CR>", { desc = "find daily" })
-
-keymap.set("n", "<leader>nw", function() require("zk.commands").get("ZkNew")({ dir = "weekly" }) end, { desc = "open weekly" })
-keymap.set("n", "<leader>nW", "<cmd>ZkNotes { tags = { 'weekly' } }<CR>", { desc = "find weekly" })
-
-keymap.set("n", "<leader>nm", function() require("zk.commands").get("ZkNew")({ dir = "monthly" }) end, { desc = "open monthly" })
-keymap.set("n", "<leader>nM", "<cmd>ZkNotes { tags = { 'monthly' } }<CR>", { desc = "find monthly" })
-
 -- Plugin Manager
 keymap.set("n", "<leader>pi", function() require("lazy").install() end, { desc = "plugins Install" })
 keymap.set("n", "<leader>ps", function() require("lazy").home() end, { desc = "plugins Status" })
@@ -174,9 +155,6 @@ keymap.set("n", "<leader>pm", "<cmd>Mason<CR>", { desc = "mason Status" })
 -- Vim options
 keymap.set("n", "<leader>va", "<cmd>set formatoptions=tc<CR>", { desc = "enable auto format" })
 keymap.set("n", "<leader>vA", "<cmd>set formatoptions-=tc<CR>", { desc = "disable auto format" })
-
--- Vim REST Console
-keymap.set("n", "<leader>xr", "<cmd>call VrcQuery()<CR>", { desc = "REST query" }) -- Run REST query
 
 -- LSP
 keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
@@ -198,122 +176,6 @@ keymap.set("v", "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>",
 -- keymap.set("n", "<leader>cn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "diagnostic next" })
 -- keymap.set("n", "<leader>cS", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", { desc = "document symbol" })
 -- keymap.set("i", "<C-Space>", "<cmd>lua vim.lsp.buf.completion()<CR>", { desc = "completion" })
-
--- LSP Saga
-keymap.set("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>",      { desc = "Lspsaga Line Diagnostics" })
-
-keymap.set("n", "<leader>ch", "<cmd>Lspsaga finder<cr>",                 { desc = "Lspsaga LSP Finder" })
-keymap.set("n", "<leader>cv", "<cmd>Lspsaga code_action<cr>",                { desc = "Lspsaga Code Action" })
-keymap.set("n", "<leader>cr", "<cmd>Lspsaga rename<cr>",                     { desc = "Lspsaga Rename" })
-keymap.set("n", "<leader>cR", "<cmd>Lspsaga rename ++project<cr>",           { desc = "Lspsaga Rename Project" })
-keymap.set("n", "<leader>cd", "<cmd>Lspsaga peek_definition<cr>",            { desc = "Lspsaga Peak Definition" })
-keymap.set("n", "<leader>cD", "<cmd>Lspsaga goto_definition<cr>",            { desc = "Lspsaga Goto Definition" })
-keymap.set("n", "<leader>ct", "<cmd>Lspsaga peek_type_definition<cr>",       { desc = "Lspsaga Peak Type Def" })
-keymap.set("n", "<leader>cT", "<cmd>Lspsaga goto_type_definition<cr>",       { desc = "Lspsaga Goto Type Def" })
-keymap.set("n", "<leader>cl", "<cmd>Lspsaga show_line_diagnostics<cr>",      { desc = "Lspsaga Line Diagnostics" })
-keymap.set("n", "<leader>cb", "<cmd>Lspsaga show_buf_diagnostics<cr>",       { desc = "Lspsaga Buf Diagnostics" })
-keymap.set("n", "<leader>cw", "<cmd>Lspsaga show_workspace_diagnostics<cr>", { desc = "Lspsaga Workspace Diagnostics" })
-keymap.set("n", "<leader>cc", "<cmd>Lspsaga show_cursor_diagnostics<cr>",    { desc = "Lspsaga Cursor Diagnostics" })
-keymap.set("n", "<leader>co", "<cmd>Lspsaga outline<cr>",                    { desc = "Lspsaga Outline" })
-keymap.set("n", "<leader>ck", "<cmd>Lspsaga hover_doc<cr>",                  { desc = "Lspsaga Hover Doc" })
-keymap.set("n", "<leader>cK", "<cmd>Lspsaga hover_doc ++keep<cr>",           { desc = "Lspsaga Hover Doc (Keep)" })
-keymap.set("n", "<leader>cI", "<cmd>Lspsaga incoming_calls<cr>",             { desc = "Lspsaga Incoming Calls" })
-keymap.set("n", "<leader>cO", "<cmd>Lspsaga outgoing_calls<cr>",             { desc = "Lspsaga Outgoing Calls" })
-keymap.set("n", "<leader>ct", "<cmd>Lspsaga term_toggle<cr>",                { desc = "Lspsaga Term Toggle" })
-keymap.set("n", "[e",         "<cmd>Lspsaga diagnostic_jump_prev<cr>",       { desc = "Lspsaga Diagnostic jump" })
-keymap.set("n", "]e",         "<cmd>Lspsaga diagnostic_jump_next<cr>",       { desc = "Lspsaga Diagnostics jump" })
-
--- Debugging
-keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "toggle breakpoint" })
-keymap.set("n", "<leader>dC", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('breakpoint condition: '))<cr>",
-  { desc = "breakpoint condition" })
-keymap.set("n", "<leader>dL", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
-  { desc = "breakpoint log" })
-keymap.set("n", "<leader>dR", "<cmd>lua require'dap'.clear_breakpoints()<cr>", { desc = "clear breakpoints" })
-keymap.set("n", "<leader>da", "<cmd>Telescope dap list_breakpoints<cr>", { desc = "list breakpoints" })
-keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", { desc = "continue" })
-keymap.set("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>", { desc = "step over" })
-keymap.set("n", "<leader>dk", "<cmd>lua require'dap'.step_into()<cr>", { desc = "step into" })
-keymap.set("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>", { desc = "step out" })
-keymap.set("n", "<leader>dd", function()
-  require("dap").disconnect(); require("dapui").close();
-end, { desc = "disconnect" })
-keymap.set("n", "<leader>dt", function()
-  require("dap").terminate(); require("dapui").close();
-end, { desc = "terminate" })
-keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", { desc = "toggle repl" })
-keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", { desc = "run last" })
-keymap.set("n", "<leader>di", function() require "dap.ui.widgets".hover() end, { desc = "widgets" })
-keymap.set("n", "<leader>d?",
-  function()
-    local widgets = require "dap.ui.widgets"; widgets.centered_float(widgets.scopes)
-  end, { desc = "widgets centered float" })
-keymap.set("n", "<leader>df", "<cmd>Telescope dap frames<cr>", { desc = "frames" })
-keymap.set("n", "<leader>dh", "<cmd>Telescope dap commands<cr>", { desc = "commands" })
-keymap.set("n", "<leader>de", function() require("telescope.builtin").diagnostics({ default_text = ":E:" }) end,
-  { desc = "diagnostics" })
-
--- Copilot
--- keymap.set("n", "<leader>ap", "<cmd>Copilot panel<CR>", { desc = "copilot panel" })
--- keymap.set("n", "<leader>ab", ":CopilotChatBuffer ", { desc = "copilot chat buffer" })
--- keymap.set("n", "<leader>ai", "<cmd>CopilotChatInPlace<CR>", { desc = "copilot chat in place" })
--- keymap.set("n", "<leader>af", "<cmd>CopilotChatFixDiagnostic<CR>", { desc = "copilot fix diagnostic" })
-
--- keymap.set("n", "<leader>ae", "<cmd>CopilotChatExplain<CR>", { desc = "copilot explain" })
--- keymap.set("n", "<leader>ar", "<cmd>CopilotChatReview<CR>", { desc = "copilot review" })
--- keymap.set("n", "<leader>at", "<cmd>CopilotChatTests<CR>", { desc = "copilot tests" })
--- keymap.set("n", "<leader>aR", "<cmd>CopilotChatRefactor<CR>", { desc = "copilot refactor" })
--- keymap.set("n", "<leader>aF", "<cmd>CopilotChatFixCode<CR>", { desc = "copilot fix code" })
--- keymap.set("n", "<leader>ab", "<cmd>CopilotChatBetterNamings<CR>", { desc = "copilot better naming" })
--- keymap.set("n", "<leader>ad", "<cmd>CopilotChatDocumentation<CR>", { desc = "copilot documentation" })
--- keymap.set("n", "<leader>as", "<cmd>CopilotChatSummarize<CR>", { desc = "copilot summarize" })
--- keymap.set("n", "<leader>aw", "<cmd>CopilotChatWording<CR>", { desc = "copilot wording" })
--- keymap.set("n", "<leader>ac", "<cmd>CopilotChatConcise<CR>", { desc = "copilot concise" })
-
--- keymap.set("n", "<leader>ab", ":CopilotChatBuffer ", { desc = "copilot visual" })
--- keymap.set("n", "<leader>ae", "<cmd>CopilotChatBuffer Please explain how the preceding code block works.<CR>", { desc = "copilot explain" })
--- keymap.set("n", "<leader>ar", "<cmd>CopilotChatBuffer Please review the preceding code and provide suggestions for improvement.<CR>", { desc = "copilot review" })
--- keymap.set("n", "<leader>at", "<cmd>CopilotChatBuffer Please explain how the selected code works, then generate unit tests for it.<CR>", { desc = "copilot tests" })
--- keymap.set("n", "<leader>aR", "<cmd>CopilotChatBuffer Please refactor the preceding code to improve its clarity and readability.<CR>", { desc = "copilot refactor" })
--- keymap.set("n", "<leader>af", "<cmd>CopilotChatBuffer Please fix the preceding code to make it work as intended.<CR>", { desc = "copilot fix code" })
--- keymap.set("n", "<leader>ab", "<cmd>CopilotChatBuffer Please provide better names for the preceding variables and functions.<CR>", { desc = "copilot better naming" })
--- keymap.set("n", "<leader>ad", "<cmd>CopilotChatBuffer Please provide documentation for the preceding code.<CR>", { desc = "copilot documentation" })
--- keymap.set("n", "<leader>aa", "<cmd>CopilotChatBuffer Please provide documentation for the preceding API using Swagger.<CR>", { desc = "copilot swagger api" })
--- keymap.set("n", "<leader>aj", "<cmd>CopilotChatBuffer Please write JSDoc for the preceding API using Swagger.<CR>", { desc = "copilot swagger jsdoc" })
--- keymap.set("n", "<leader>as", "<cmd>CopilotChatBuffer Please summarize the preceding text.<CR>", { desc = "copilot summarize" })
--- keymap.set("n", "<leader>aS", "<cmd>CopilotChatBuffer Please correct any grammar and spelling errors in the preceding text.<CR>", { desc = "copilot spelling" })
--- keymap.set("n", "<leader>aw", "<cmd>CopilotChatBuffer Please improve the grammar and wording of the preceding text.<CR>", { desc = "copilot wording" })
--- keymap.set("n", "<leader>ac", "<cmd>CopilotChatBuffer Please rewrite the preceding text to make it more concise.<CR>", { desc = "copilot concise" })
---
--- keymap.set("v", "<leader>av", ":CopilotChatVisual ", { desc = "copilot visual" })
--- keymap.set("v", "<leader>ae", "<cmd>CopilotChatVisual Please explain how the preceding code block works.<CR>", { desc = "copilot explain" })
--- keymap.set("v", "<leader>ar", "<cmd>CopilotChatVisual Please review the preceding code and provide suggestions for improvement.<CR>", { desc = "copilot review" })
--- keymap.set("v", "<leader>at", "<cmd>CopilotChatVisual Please explain how the selected code works, then generate unit tests for it.<CR>", { desc = "copilot tests" })
--- keymap.set("v", "<leader>aR", "<cmd>CopilotChatVisual Please refactor the preceding code to improve its clarity and readability.<CR>", { desc = "copilot refactor" })
--- keymap.set("v", "<leader>af", "<cmd>CopilotChatVisual Please fix the preceding code to make it work as intended.<CR>", { desc = "copilot fix code" })
--- keymap.set("v", "<leader>ab", "<cmd>CopilotChatVisual Please provide better names for the preceding variables and functions.<CR>", { desc = "copilot better naming" })
--- keymap.set("v", "<leader>ad", "<cmd>CopilotChatVisual Please provide documentation for the preceding code.<CR>", { desc = "copilot documentation" })
--- keymap.set("v", "<leader>aa", "<cmd>CopilotChatVisual Please provide documentation for the preceding API using Swagger.<CR>", { desc = "copilot swagger api" })
--- keymap.set("v", "<leader>aj", "<cmd>CopilotChatVisual Please write JSDoc for the preceding API using Swagger.<CR>", { desc = "copilot swagger jsdoc" })
--- keymap.set("v", "<leader>as", "<cmd>CopilotChatVisual Please summarize the preceding text.<CR>", { desc = "copilot summarize" })
--- keymap.set("v", "<leader>aS", "<cmd>CopilotChatVisual Please correct any grammar and spelling errors in the preceding text.<CR>", { desc = "copilot spelling" })
--- keymap.set("v", "<leader>aw", "<cmd>CopilotChatVisual Please improve the grammar and wording of the preceding text.<CR>", { desc = "copilot wording" })
--- keymap.set("v", "<leader>ac", "<cmd>CopilotChatVisual Please rewrite the preceding text to make it more concise.<CR>", { desc = "copilot concise" })
-
--- Explain = "Please explain how the following code works.",
--- Review = "Please review the following code and provide suggestions for improvement.",
--- Tests = "Please explain how the selected code works, then generate unit tests for it.",
--- Refactor = "Please refactor the following code to improve its clarity and readability.",
--- FixCode = "Please fix the following code to make it work as intended.",
--- BetterNamings = "Please provide better names for the following variables and functions.",
--- Documentation = "Please provide documentation for the following code.",
--- SwaggerApiDocs = "Please provide documentation for the following API using Swagger.",
--- SwaggerJsDocs = "Please write JSDoc for the following API using Swagger.",
--- -- Text-related prompts
--- Summarize = "Please summarize the following text.",
--- Spelling = "Please correct any grammar and spelling errors in the following text.",
--- Wording = "Please improve the grammar and wording of the following text.",
--- Concise = "Please rewrite the following text to make it more concise.",
 
 vim.keymap.set("n", "<Leader><Esc>", function()
   vim.fn.setreg("/", "")

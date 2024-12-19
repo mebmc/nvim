@@ -13,17 +13,17 @@ return {
   keys = {
     {
       "<leader>ca",
-      desc = "CC Actions",
+      desc = "cc actions",
       mode = { "n", "v" },
       "<cmd>CodeCompanionActions<cr>",
     },
     {
-      "<leader>cC",
-      desc = "CC Chat",
+      "<leader>cc",
+      desc = "cc chat",
       mode = { "v", "n" },
       "<cmd>CodeCompanionChat Toggle<cr>",
     },
-    { "ga", desc = "CC Chat Add", mode = "v", "<cmd>CodeCompanionChat Add<cr>" },
+    { "ga", desc = "cc chat add", mode = "v", "<cmd>CodeCompanionChat Add<cr>" },
   },
   opts = {
     strategies = {
