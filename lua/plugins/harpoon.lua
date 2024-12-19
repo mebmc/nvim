@@ -8,58 +8,58 @@ return {
   },
   keys = {
     {
-      "<leader>h",
-      desc = "Harpoon",
+      "<leader><enter>",
+      desc = "harpoon list",
       mode = { "n", "v" },
       "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
     },
     {
       "<leader>H",
-      desc = "Harpoon Add",
+      desc = "harpoon add",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.mark').add_file()<cr>",
+      function() return require('harpoon'):list():add() end
     },
     {
       "<leader>1",
-      desc = "Harpoon Jump 1",
+      desc = "harpoon 1",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.ui').nav_file(1)<cr>",
+      function() return require('harpoon'):list():select(1) end
     },
     {
       "<leader>2",
-      desc = "Harpoon Jump 2",
+      desc = "harpoon 2",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.ui').nav_file(2)<cr>",
+      function() return require('harpoon'):list():select(2) end
     },
     {
       "<leader>3",
-      desc = "Harpoon Jump 3",
+      desc = "harpoon 3",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.ui').nav_file(3)<cr>",
+      function() return require('harpoon'):list():select(3) end
     },
     {
       "<leader>4",
-      desc = "Harpoon Jump 4",
+      desc = "harpoon 4",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.ui').nav_file(4)<cr>",
+      function() return require('harpoon'):list():select(4) end
     },
     {
       "<leader>5",
-      desc = "Harpoon Jump 5",
+      desc = "harpoon 5",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.ui').nav_file(5)<cr>",
+      function() return require('harpoon'):list():select(5) end
     },
     {
       "<leader>6",
-      desc = "Harpoon Jump 6",
+      desc = "harpoon 6",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.ui').nav_file(6)<cr>",
+      function() return require('harpoon'):list():select(6) end
     },
     {
       "<leader>7",
-      desc = "Harpoon Jump 7",
+      desc = "harpoon 7",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.ui').nav_file(7)<cr>",
+      function() return require('harpoon'):list():select(7) end
     },
   },
   opts = {

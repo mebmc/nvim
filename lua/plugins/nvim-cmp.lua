@@ -32,6 +32,7 @@ return {
     "petertriho/cmp-git",
     "David-Kunz/cmp-npm",
     "KadoBOT/cmp-plugins",
+    "olimorris/codecompanion.nvim",
     -- "zbirenbaum/copilot-cmp",
     -- "jcdickinson/codeium.nvim",
 
@@ -100,34 +101,37 @@ return {
         -- end, { 'i', 's' }),
       },
       sources = cmp.config.sources({
-        { name = "nvim_lsp",                 priority = 1500, keyword_length = 1 },
-        { name = "nvim_lsp_document_symbol", priority = 1500, keyword_length = 1 },
-        { name = "nvim_lsp_signature_help",  priority = 1500, keyword_length = 1 },
-        -- { name = "copilot",             priority = 1000, keyword_length = 1 },
-        -- { name = "codeium",             priority = 1000, keyword_length = 1 },
-        { name = "luasnip",                  priority = 750,  keyword_length = 2 },
-        { name = "buffer",                   priority = 500,  keyword_length = 2 },
-        { name = "nerdfont",                 priority = 300,  keyword_length = 2 },
-        { name = "path",                     priority = 250,  keyword_length = 2 },
-        { name = "calc",                     priority = 250,  keyword_length = 2 },
-        { name = "crates",                   priority = 200,  keyword_length = 1 },
-        { name = "conventionalcommits",      priority = 200,  keyword_length = 2 },
-        { name = "treesitter",               priority = 200,  keyword_length = 2 },
-        { name = "emoji",                    priority = 100,  keyword_length = 2 },
-        { name = "dictionary",               priority = 100,  keyword_length = 2 },
-        { name = "spell",                    priority = 100,  keyword_length = 3 },
-        { name = "tmux",                     priority = 100,  keyword_length = 3, option = { label = '[tmux]' } },
-        { name = "git",                      priority = 200,  keyword_length = 2 },
-        { name = "npm",                      priority = 200,  keyword_length = 2 },
-        { name = "nvim_lua",                 priority = 200,  keyword_length = 2 },
-        { name = "plugins",                  priority = 200,  keyword_length = 2 },
+        { name = "nvim_lsp",                     priority = 1500, keyword_length = 1 },
+        { name = "nvim_lsp_document_symbol",     priority = 1500, keyword_length = 1 },
+        { name = "nvim_lsp_signature_help",      priority = 1500, keyword_length = 1 },
+        -- { name = "copilot",                      priority = 1000, keyword_length = 1 },
+        -- { name = "codeium",                      priority = 1000, keyword_length = 1 },
+        { name = "codecompanion_models",         priority = 800,  keyword_length = 1 },
+        { name = "codecompanion_slash_commands", priority = 800,  keyword_length = 1 },
+        { name = "codecompanion_tools",          priority = 800,  keyword_length = 1 },
+        { name = "codecompanion_variables",      priority = 800,  keyword_length = 1 },
+        { name = "luasnip",                      priority = 750,  keyword_length = 2 },
+        { name = "buffer",                       priority = 500,  keyword_length = 2 },
+        { name = "nerdfont",                     priority = 300,  keyword_length = 2 },
+        { name = "path",                         priority = 250,  keyword_length = 2 },
+        { name = "calc",                         priority = 250,  keyword_length = 2 },
+        { name = "crates",                       priority = 200,  keyword_length = 1 },
+        { name = "conventionalcommits",          priority = 200,  keyword_length = 2 },
+        { name = "treesitter",                   priority = 200,  keyword_length = 2 },
+        { name = "emoji",                        priority = 100,  keyword_length = 2 },
+        { name = "dictionary",                   priority = 100,  keyword_length = 2 },
+        { name = "spell",                        priority = 100,  keyword_length = 3 },
+        { name = "tmux",                         priority = 100,  keyword_length = 3, option = { label = '[tmux]' } },
+        { name = "git",                          priority = 200,  keyword_length = 2 },
+        { name = "npm",                          priority = 200,  keyword_length = 2 },
+        { name = "nvim_lua",                     priority = 200,  keyword_length = 2 },
+        { name = "plugins",                      priority = 200,  keyword_length = 2 },
       }),
       window = {
         -- Add borders to completions popups
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
-
 
       -- local lspkind = require("lspkind")
       formatting = {
@@ -137,6 +141,7 @@ return {
           mode = "symbol_text",
           menu = {
             copilot = "[ copilot]",
+            codecompanion = "[ codecompanion]",
             codeium = "[ codeium]",
             nvim_lsp = "[ lsp]",
             nvim_lsp_document_symbol = "[ lsp]",
@@ -178,8 +183,6 @@ return {
           cmp.config.compare.order,
         },
       }
-
-
     })
   end,
 }

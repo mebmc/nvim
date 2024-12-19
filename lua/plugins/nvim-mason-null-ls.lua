@@ -10,7 +10,7 @@ return {
         "BufNewFile"
     },
     opts = {
-        automatic_installation = true,
+        automatic_installation = false,
         ensure_installed = {
             "black",
             -- "gitlint",

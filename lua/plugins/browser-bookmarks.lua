@@ -8,7 +8,7 @@ return {
         "BrowserBookmarks"
     },
     keys = {
-        { "<leader>fB", "<cmd>Telescope bookmarks<cr>", desc = "  Bookmarks" },
+        { "<leader>fB", "<cmd>Telescope bookmarks<cr>", desc = "bookmarks" },
     },
     opts = {
         selected_browser = 'brave'

@@ -14,6 +14,8 @@ opt.expandtab = true
 opt.autoindent = true
 vim.bo.softtabstop = 4
 
+opt.switchbuf = "useopen"
+
 -- Line Wrapping
 opt.wrap = true
 
