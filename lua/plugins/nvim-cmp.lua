@@ -33,7 +33,8 @@ return {
     "David-Kunz/cmp-npm",
     "KadoBOT/cmp-plugins",
     "olimorris/codecompanion.nvim",
-    -- "zbirenbaum/copilot-cmp",
+    "milanglacier/minuet-ai.nvim",
+    "zbirenbaum/copilot-cmp",
     -- "jcdickinson/codeium.nvim",
 
   },
@@ -104,7 +105,8 @@ return {
         { name = "nvim_lsp",                     priority = 1500, keyword_length = 1 },
         { name = "nvim_lsp_document_symbol",     priority = 1500, keyword_length = 1 },
         { name = "nvim_lsp_signature_help",      priority = 1500, keyword_length = 1 },
-        -- { name = "copilot",                      priority = 1000, keyword_length = 1 },
+        { name = "copilot",                      priority = 1000, keyword_length = 1 },
+        { name = "minuet",                       priority = 1000, keyword_length = 1 },
         -- { name = "codeium",                      priority = 1000, keyword_length = 1 },
         { name = "codecompanion_models",         priority = 800,  keyword_length = 1 },
         { name = "codecompanion_slash_commands", priority = 800,  keyword_length = 1 },
@@ -133,6 +135,10 @@ return {
         documentation = cmp.config.window.bordered(),
       },
 
+      performance = {
+        fetching_timeout = 10000,
+      },
+
       -- local lspkind = require("lspkind")
       formatting = {
         format = require("lspkind").cmp_format({
@@ -141,6 +147,7 @@ return {
           mode = "symbol_text",
           menu = {
             copilot = "[ copilot]",
+            minuet = "[ minuet]",
             codecompanion = "[ codecompanion]",
             codeium = "[ codeium]",
             nvim_lsp = "[ lsp]",

@@ -11,7 +11,7 @@ return {
       "<leader><enter>",
       desc = "harpoon list",
       mode = { "n", "v" },
-      "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+      function() return require('harpoon.ui'):toggle_quick_menu({}) end
     },
     {
       "<leader>H",
