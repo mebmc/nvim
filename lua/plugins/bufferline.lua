@@ -4,7 +4,7 @@ return {
     config = true,
     opts = {
         options = {
-            mode = "tabs",
+            -- mode = "tabs",
             diagnostics = "nvim_lsp",
         }
     }

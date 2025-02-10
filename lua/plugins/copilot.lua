@@ -5,7 +5,7 @@ return {
     event = "VeryLazy",
     opts = {
         panel = {
-            enabled = true,
+            enabled = false,
             auto_refresh = true,
             keymap = {
                 jump_prev = "[[",
@@ -20,7 +20,7 @@ return {
             },
         },
         suggestion = {
-            enabled = true,
+            enabled = false,
             auto_trigger = true,
             debounce = 75,
             keymap = {

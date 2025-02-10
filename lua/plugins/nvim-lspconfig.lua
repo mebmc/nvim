@@ -9,12 +9,12 @@ return {
     { 'williamboman/mason-lspconfig.nvim' },
 
     -- Useful status updates for LSP
-    { 'j-hui/fidget.nvim', opts = {} },
+    { 'j-hui/fidget.nvim',                opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
-    {'folke/neodev.nvim' },
+    { 'folke/neodev.nvim' },
   },
-  config = function ()
+  config = function()
     require('mason').setup()
     require('mason-lspconfig').setup({
       -- Install these LSPs automatically
@@ -22,19 +22,19 @@ return {
         'ansiblels',
         'bashls', -- requires npm to be installed
         'biome',
-        'cssls', -- requires npm to be installed
+        'cssls',  -- requires npm to be installed
         'docker_compose_language_service',
         'dockerls',
         -- 'gopls',
         -- 'gradle_ls',
         'graphql',
-        'html', -- requires npm to be installed
+        'html',         -- requires npm to be installed
         'intelephense', -- requires npm to be installed
-        'jqls',
-        'jsonls', -- requires npm to be installed
+        -- 'jqls',
+        'jsonls',       -- requires npm to be installed
         -- 'lemminx',
         -- 'lua_ls',
-        'marksman',
+        -- 'marksman',
         'pyre',
         'pyright',
         'quick_lint_js',
@@ -61,8 +61,8 @@ return {
           capabilities = lsp_capabilities,
           handlers = {
             -- Add borders to LSP popups
-            ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'}),
-            ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded' }),
+            ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
+            ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
           }
         })
       end
@@ -74,7 +74,20 @@ return {
         Lua = {
           diagnostics = {
             -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
+            globals = { 'vim' },
+          },
+        },
+      },
+    }
+
+    -- Add YAML LSP settings
+    lspconfig.yamlls.setup {
+      settings = {
+        yaml = {
+          customTags = {
+            "!Ref",
+            "!ImportValue",
+            "!reference",
           },
         },
       },
@@ -82,4 +95,3 @@ return {
 
   end
 }
-

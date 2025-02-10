@@ -15,7 +15,7 @@ return {
             "black",
             -- "gitlint",
             "jsonlint",
-            "jq",
+            -- "jq",
             "rustfmt",
             -- "semgrep",
             "shellcheck",
