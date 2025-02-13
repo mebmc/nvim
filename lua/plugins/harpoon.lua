@@ -11,7 +11,10 @@ return {
       "<leader><enter>",
       desc = "harpoon list",
       mode = { "n", "v" },
-      function() return require('harpoon.ui'):toggle_quick_menu({}) end
+      function()
+        local harpoon = require('harpoon')
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end
     },
     {
       "<leader>H",
