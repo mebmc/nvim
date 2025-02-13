@@ -65,5 +65,5 @@ opt.textwidth = 0
 
 -- Spell
 opt.spell = true
-opt.spelllang = "en_gb"
+opt.spelllang = "en_gb,en,cjk"
 
