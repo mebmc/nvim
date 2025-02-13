@@ -153,29 +153,14 @@ keymap.set("n", "<leader>pU", function() require("lazy").update() end, { desc = 
 keymap.set("n", "<leader>pm", "<cmd>Mason<CR>", { desc = "mason Status" })
 
 -- Vim options
-keymap.set("n", "<leader>va", "<cmd>set formatoptions=tc<CR>", { desc = "enable auto format" })
-keymap.set("n", "<leader>vA", "<cmd>set formatoptions-=tc<CR>", { desc = "disable auto format" })
+keymap.set("n", "<leader>ua", "<cmd>set formatoptions=tc<CR>", { desc = "enable auto format" })
+keymap.set("n", "<leader>uA", "<cmd>set formatoptions-=tc<CR>", { desc = "disable auto format" })
 
 -- LSP
 keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
 keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "definition" })
---
--- keymap.set("n", "<leader>cg", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "hover" })
--- keymap.set("n", "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
--- keymap.set("n", "<leader>cD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "declaration" })
--- keymap.set("n", "<leader>ci", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "implementation" })
--- keymap.set("n", "<leader>ct", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "type definition" })
--- keymap.set("n", "<leader>cr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "references" })
--- keymap.set("n", "<leader>cs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "signature help" })
--- keymap.set("n", "<leader>cR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "rename" })
-keymap.set("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
-keymap.set("v", "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
--- keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "code action" })
--- keymap.set("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "diagnostic open" })
--- keymap.set("n", "<leader>cp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "diagnostic previous" })
--- keymap.set("n", "<leader>cn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "diagnostic next" })
--- keymap.set("n", "<leader>cS", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", { desc = "document symbol" })
--- keymap.set("i", "<C-Space>", "<cmd>lua vim.lsp.buf.completion()<CR>", { desc = "completion" })
+keymap.set("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
+keymap.set("v", "<leader>vf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
 
 vim.keymap.set("n", "<Leader><Esc>", function()
   vim.fn.setreg("/", "")
