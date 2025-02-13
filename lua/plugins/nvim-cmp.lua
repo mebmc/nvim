@@ -102,11 +102,11 @@ return {
         -- end, { 'i', 's' }),
       },
       sources = cmp.config.sources({
+        { name = "copilot",                      priority = 5000, keyword_length = 1 },
+        { name = "minuet",                       priority = 4000, keyword_length = 1 },
         { name = "nvim_lsp",                     priority = 1500, keyword_length = 1 },
         { name = "nvim_lsp_document_symbol",     priority = 1500, keyword_length = 1 },
         { name = "nvim_lsp_signature_help",      priority = 1500, keyword_length = 1 },
-        { name = "copilot",                      priority = 1000, keyword_length = 1 },
-        { name = "minuet",                       priority = 1000, keyword_length = 1 },
         -- { name = "codeium",                      priority = 1000, keyword_length = 1 },
         { name = "codecompanion_models",         priority = 800,  keyword_length = 1 },
         { name = "codecompanion_slash_commands", priority = 800,  keyword_length = 1 },
@@ -177,11 +177,11 @@ return {
       sorting = {
         priority_weight = 2,
         comparators = {
+          require("copilot_cmp.comparators").prioritize,
           -- Below is the default comparitor list and order for nvim-cmp
           cmp.config.compare.offset,
           -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
           cmp.config.compare.exact,
-          -- require("copilot_cmp.comparators").prioritize,
           cmp.config.compare.score,
           require("cmp-under-comparator").under,
           cmp.config.compare.kind,

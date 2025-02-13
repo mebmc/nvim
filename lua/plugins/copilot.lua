@@ -4,37 +4,39 @@ return {
     build = ":Copilot auth",
     event = "VeryLazy",
     opts = {
-        panel = {
-            enabled = false,
-            auto_refresh = true,
-            keymap = {
-                jump_prev = "[[",
-                jump_next = "]]",
-                accept = "<CR>",
-                refresh = "gr",
-                open = "<M-CR>"
-            },
-            layout = {
-                position = "right", -- | top | left | right
-                ratio = 0.4
-            },
-        },
-        suggestion = {
-            enabled = false,
-            auto_trigger = true,
-            debounce = 75,
-            keymap = {
-                accept = "<S-Tab>",
-                accept_word = "<C-s>",
-                accept_line = "<C-y>",
-                next = "<C-e>",
-                prev = "<C-w>",
-                dismiss = "<C-]>",
-            },
-        },
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+        -- panel = {
+        --     enabled = false,
+        --     auto_refresh = true,
+        --     keymap = {
+        --         jump_prev = "[[",
+        --         jump_next = "]]",
+        --         accept = "<CR>",
+        --         refresh = "gr",
+        --         open = "<M-CR>"
+        --     },
+        --     layout = {
+        --         position = "right", -- | top | left | right
+        --         ratio = 0.4
+        --     },
+        -- },
+        -- suggestion = {
+        --     enabled = false,
+        --     auto_trigger = true,
+        --     debounce = 75,
+        --     keymap = {
+        --         accept = "<S-Tab>",
+        --         accept_word = "<C-s>",
+        --         accept_line = "<C-y>",
+        --         next = "<C-e>",
+        --         prev = "<C-w>",
+        --         dismiss = "<C-]>",
+        --     },
+        -- },
         filetypes = {
             yaml      = true,
-            markdown  = false,
+            markdown  = true,
             help      = false,
             gitcommit = true,
             gitrebase = false,
@@ -47,8 +49,8 @@ return {
         server_opts_overrides = {
             settings = {
                 advanced = {
-                    listCount = 9, -- #completions for panel
-                    inlineSuggestCount = 9, -- #completions for getCompletions
+                    listCount = 3,          -- #completions for panel
+                    inlineSuggestCount = 3, -- #completions for getCompletions
                 }
             },
         },
