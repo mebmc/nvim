@@ -44,7 +44,14 @@ return {
         -- 'tsserver', -- requires npm to be installed
         'vimls',
         'yamlls', -- requires npm to be installed
+      },
+
+      opts = {
+        inlay_hints = {
+          enabled = false,
+        },
       }
+
     })
 
     local lspconfig = require('lspconfig')
