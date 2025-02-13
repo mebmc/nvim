@@ -83,6 +83,12 @@ return {
       autocmd ColorScheme * hi NormalFloat guifg=#F9E7C0 guibg=#1F1F1F
       autocmd ColorScheme * hi FloatBorder guifg=#F9E7C0 guibg=#1F1F1F
     ]])
+
+    -- Custom spell check colors
+    vim.cmd([[
+      autocmd ColorScheme * hi SpellBad gui=undercurl guifg=#FF0000 guibg=#550000
+      autocmd ColorScheme * hi SpellBad cterm=underline ctermfg=#FF0000 ctermbg=#550000
+    ]])
   end
 }
 
