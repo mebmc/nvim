@@ -6,7 +6,7 @@ return {
     },
     ft = "go",
     keys = {
-        { "<leader>le", "<cmd>GoIfErr<cr>", desc = "  IfErr" },
+        { "<leader>ve", "<cmd>GoIfErr<cr>", desc = "IfErr" },
     },
     build = function()
         vim.cmd [[silent! GoINstallDeps]]
