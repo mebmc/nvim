@@ -18,30 +18,32 @@ return {
         require('which-key').setup(opts)
 
         require('which-key').add({
-            { "<leader>L",  group = "location list" },
-            { "<leader>O",  group = "obsidian" },
-            { "<leader>b",  group = "buffers" },
-            { "<leader>d",  group = "dap" },
-            { "<leader>e",  group = "explorer" },
-            { "<leader>f",  group = "find" },
-            { "<leader>g",  group = "git" },
-            { "<leader>n",  group = "notes" },
-            { "<leader>p",  group = "packages" },
-            { "<leader>q",  group = "quit" },
-            { "<leader>r",  group = "terminal" },
-            { "<leader>s",  group = "split" },
-            { "<leader>t",  group = "tabs" },
-            { "<leader>u",  group = "user options" },
-            { "<leader>v",  group = "lspsaga" },
-            { "<leader>w",  group = "write" },
-            { "<leader>x",  group = "quickfix" },
-        }
-        )
-        --     -- register which-key VISUAL mode
-        --     -- required for visual <leader>hs (hunk stage) to work
-        --     require('which-key').register({
-        --         ['<leader>'] = { name = 'VISUAL <leader>' },
-        --         ['<leader>h'] = { 'Git Hunk' },
-        --     }, { mode = 'v' })
+            { "<leader>1", hidden = true,      mode = { "n", "v" } },
+            { "<leader>2", hidden = true,      mode = { "n", "v" } },
+            { "<leader>3", hidden = true,      mode = { "n", "v" } },
+            { "<leader>4", hidden = true,      mode = { "n", "v" } },
+            { "<leader>5", hidden = true,      mode = { "n", "v" } },
+            { "<leader>6", hidden = true,      mode = { "n", "v" } },
+            { "<leader>7", hidden = true,      mode = { "n", "v" } },
+            { "<leader>8", hidden = true,      mode = { "n", "v" } },
+            { "<leader>9", hidden = true,      mode = { "n", "v" } },
+            { "<leader>L", group = "location", mode = { "n", "v" } },
+            { "<leader>O", group = "obsidian", mode = { "n", "v" } },
+            { "<leader>b", group = "buffers",  mode = { "n", "v" } },
+            { "<leader>d", group = "dap",      mode = { "n", "v" } },
+            { "<leader>e", group = "llm",      mode = { "n", "v" } },
+            { "<leader>f", group = "find",     mode = { "n", "v" } },
+            { "<leader>g", group = "git",      mode = { "n", "v" } },
+            { "<leader>n", group = "notes",    mode = { "n", "v" } },
+            { "<leader>p", group = "packages", mode = { "n", "v" } },
+            { "<leader>q", group = "quit",     mode = { "n", "v" } },
+            { "<leader>r", group = "terminal", mode = { "n", "v" } },
+            { "<leader>s", group = "split",    mode = { "n", "v" } },
+            { "<leader>t", group = "tabs",     mode = { "n", "v" } },
+            { "<leader>u", group = "options",  mode = { "n", "v" } },
+            { "<leader>v", group = "lspsaga",  mode = { "n", "v" } },
+            { "<leader>w", group = "write",    mode = { "n", "v" } },
+            { "<leader>x", group = "quickfix", mode = { "n", "v" } },
+        })
     end,
 }

@@ -1,4 +1,5 @@
 -- Auto-completion / Snippets
+-- return {}
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -64,6 +65,36 @@ return {
           behavior = cmp.ConfirmBehavior.Insert,
           select = false,
         },
+        ['<Left>'] = vim.schedule_wrap(function(fallback)
+          if cmp.visible() then
+            cmp.close();
+          else
+            fallback()
+          end
+        end),
+        ['<Right>'] = vim.schedule_wrap(function(fallback)
+          if cmp.visible() then
+            cmp.close();
+          else
+            fallback()
+          end
+        end),
+        ['<C-n>'] = vim.schedule_wrap(function(fallback)
+          if cmp.visible() then
+            cmp.mapping.abort();
+            fallback()
+          else
+            fallback()
+          end
+        end),
+        ['<C-N>'] = vim.schedule_wrap(function(fallback)
+          if cmp.visible() then
+            cmp.mapping.abort();
+            fallback()
+          else
+            fallback()
+          end
+        end),
         ["<Up>"] = vim.schedule_wrap(function(fallback)
           if cmp.visible() then
             cmp.mapping.abort();
@@ -102,28 +133,28 @@ return {
         -- end, { 'i', 's' }),
       },
       sources = cmp.config.sources({
-        { name = "copilot",                      priority = 5000, keyword_length = 1 },
-        { name = "minuet",                       priority = 4000, keyword_length = 1 },
-        { name = "nvim_lsp",                     priority = 1500, keyword_length = 1 },
-        { name = "nvim_lsp_document_symbol",     priority = 1500, keyword_length = 1 },
-        { name = "nvim_lsp_signature_help",      priority = 1500, keyword_length = 1 },
-        -- { name = "codeium",                      priority = 1000, keyword_length = 1 },
-        { name = "codecompanion_models",         priority = 800,  keyword_length = 1 },
-        { name = "codecompanion_slash_commands", priority = 800,  keyword_length = 1 },
-        { name = "codecompanion_tools",          priority = 800,  keyword_length = 1 },
-        { name = "codecompanion_variables",      priority = 800,  keyword_length = 1 },
+        -- { name = "copilot",                      priority = 5000, keyword_length = 2 },
+        { name = "minuet",                       priority = 4000, keyword_length = 2 },
+        { name = "nvim_lsp",                     priority = 1500, keyword_length = 2 },
+        { name = "nvim_lsp_document_symbol",     priority = 1500, keyword_length = 2 },
+        { name = "nvim_lsp_signature_help",      priority = 1500, keyword_length = 2 },
+        -- { name = "codeium",                      priority = 1000, keyword_length = 2 },
+        { name = "codecompanion_models",         priority = 800,  keyword_length = 2 },
+        { name = "codecompanion_slash_commands", priority = 800,  keyword_length = 2 },
+        { name = "codecompanion_tools",          priority = 800,  keyword_length = 2 },
+        { name = "codecompanion_variables",      priority = 800,  keyword_length = 2 },
         { name = "luasnip",                      priority = 750,  keyword_length = 2 },
         { name = "buffer",                       priority = 500,  keyword_length = 2 },
         { name = "nerdfont",                     priority = 300,  keyword_length = 2 },
         { name = "path",                         priority = 250,  keyword_length = 2 },
         { name = "calc",                         priority = 250,  keyword_length = 2 },
-        { name = "crates",                       priority = 200,  keyword_length = 1 },
+        { name = "crates",                       priority = 200,  keyword_length = 2 },
         { name = "conventionalcommits",          priority = 200,  keyword_length = 2 },
         { name = "treesitter",                   priority = 200,  keyword_length = 2 },
         { name = "emoji",                        priority = 100,  keyword_length = 2 },
         { name = "dictionary",                   priority = 100,  keyword_length = 2 },
-        { name = "spell",                        priority = 100,  keyword_length = 3 },
-        { name = "tmux",                         priority = 100,  keyword_length = 3, option = { label = '[tmux]' } },
+        { name = "spell",                        priority = 100,  keyword_length = 2 },
+        { name = "tmux",                         priority = 100,  keyword_length = 2, option = { label = '[tmux]' } },
         { name = "git",                          priority = 200,  keyword_length = 2 },
         { name = "npm",                          priority = 200,  keyword_length = 2 },
         { name = "nvim_lua",                     priority = 200,  keyword_length = 2 },
@@ -132,6 +163,16 @@ return {
       window = {
         -- Add borders to completions popups
         completion = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered({
+        --   winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel,Search:None",
+        --   col_offset = -3,  -- optional: tweak horizontal position
+        --   side_padding = 1, -- optional: tweak padding
+        --   win_config = {
+        --     relative = 'cursor',
+        --     row = -1, -- negative value places menu above the cursor
+        --     col = 0,
+        --   },
+        -- }),
         documentation = cmp.config.window.bordered(),
       },
 

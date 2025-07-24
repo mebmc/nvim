@@ -12,12 +12,13 @@ return {
         "BufNewFile"
     },
     keys = {
-        { "<A-S-j>",    "<cmd>MoveLine(1)<CR>",    mode = { "n", "v" } },
-        { "<A-S-k>",    "<cmd>MoveLine(-1)<CR>",   mode = { "n", "v" } },
-        { "<A-S-h>",    "<cmd>MoveHChar(-1)<CR>",  mode = { "n", "v" } },
-        { "<A-S-l>",    "<cmd>MoveHChar(1)<CR>",   mode = { "n", "v" } },
-        { "<leader>wf", "<cmd>MoveWord(1)<CR>",    mode = "x" },
-        { "<leader>wb", "<cmd>MoveWord(-1)<CR>",   mode = "x" },
+        { "<A-S-j>",    "<cmd>MoveLine(1)<CR>",   desc = "move live forward",  mode = { "n", "v" } },
+        { "<A-S-k>",    "<cmd>MoveLine(-1)<CR>",  desc = "move line backward", mode = { "n", "v" } },
+        { "<A-S-h>",    "<cmd>MoveHChar(-1)<CR>", desc = "move char backward", mode = { "n", "v" } },
+        { "<A-S-l>",    "<cmd>MoveHChar(1)<CR>",  desc = "move char forward",  mode = { "n", "v" } },
+        { "<leader>m",  "",                       desc = "move",               mode = "x" },
+        { "<leader>mf", "<cmd>MoveWord(1)<CR>",   desc = "move word forward",  mode = "x" },
+        { "<leader>mb", "<cmd>MoveWord(-1)<CR>",  desc = "move word backward", mode = "x" },
     }
 }
 
