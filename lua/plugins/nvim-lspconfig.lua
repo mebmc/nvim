@@ -35,7 +35,7 @@ return {
                 -- 'lemminx',
                 'lua_ls',
                 -- 'marksman',
-                'pyre',
+                -- 'pyre',
                 'pyright',
                 'quick_lint_js',
                 'ruff',
