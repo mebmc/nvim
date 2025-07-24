@@ -17,7 +17,7 @@ function _G.set_terminal_keymaps()
 end
 
 -- Disable markdown render
-vim.cmd([[autocmd BufRead,BufNewFile *.md RenderMarkdown disable]])
+-- vim.cmd([[autocmd BufRead,BufNewFile *.md RenderMarkdown disable]])
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
