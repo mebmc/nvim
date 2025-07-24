@@ -49,3 +49,5 @@ yaml
 zsh
 autocmds
 plugins
+shaders
+Raylib
