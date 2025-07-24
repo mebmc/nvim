@@ -5,8 +5,12 @@ local keymap = vim.keymap
 
 -- General keymaps
 keymap.set("i", "jk", "<ESC>", { desc = "exit insert mode" })
+keymap.set("n", "<leader>w", "", { desc = "write" })
+keymap.set("n", "<leader>W", "", { desc = "write" })
 keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "save" })
+keymap.set("n", "<leader>Ww", "<cmd>w<CR>", { desc = "save" })
 keymap.set("n", "<leader>wq", "<cmd>wq<CR>", { desc = "save and quit" })
+keymap.set("n", "<leader>Wq", "<cmd>wq<CR>", { desc = "save and quit" })
 keymap.set("n", "<leader>wb", "<cmd>w<CR><cmd>bd<CR>", { desc = "save and close buffer" })
 keymap.set("n", "<leader>qq", "<cmd>q<CR>", { desc = "quit" })
 keymap.set("n", "<leader>qQ", "<cmd>q!<CR>", { desc = "force quit" })
@@ -20,13 +24,14 @@ keymap.set("n", "gB", "<cmd>bnext<CR>", { desc = "next buffer" })
 keymap.set("n", "<leader>u2", "<cmd>set autoindent expandtab tabstop=2 shiftwidth=2<cr>", { desc = "tab size 2" })
 keymap.set("n", "<leader>u4", "<cmd>set autoindent expandtab tabstop=4 shiftwidth=4<cr>", { desc = "tab size 4" })
 keymap.set("n", "<leader>u8", "<cmd>set autoindent expandtab tabstop=8 shiftwidth=8<cr>", { desc = "tab size 8" })
-keymap.set("n", "<leader>uc", "<cmd>CloakToggle<cr>", { desc = "toggle cloak" })
-keymap.set("n", "<leader>ut", "<cmd>TroubleToggle<cr>", { desc = "toggle trouble" })
-keymap.set("n", "<leader>uT", "<cmd>TransparentToggle<cr>", { desc = "toggle transparent" })
-keymap.set("n", "<leader>uz", "<cmd>Twilight<cr>", { desc = "toggle twilight" })
-keymap.set("n", "<leader>uZ", "<cmd>ZenMode<cr>", { desc = "toggle zenmode" })
-keymap.set("n", "<leader>us", "<cmd>set scrollbind<cr>", { desc = "set scrollbind" })
 keymap.set("n", "<leader>uS", "<cmd>set noscrollbind<cr>", { desc = "stop scrollbind" })
+keymap.set("n", "<leader>uT", "<cmd>TransparentToggle<cr>", { desc = "toggle transparent" })
+keymap.set("n", "<leader>uZ", "<cmd>ZenMode<cr>", { desc = "toggle zenmode" })
+keymap.set("n", "<leader>uc", "<cmd>CloakToggle<cr>", { desc = "toggle cloak" })
+keymap.set("n", "<leader>um", "<cmd>RenderMarkdown toggle<cr>", { desc = "toggle render markdown" })
+keymap.set("n", "<leader>us", "<cmd>set scrollbind<cr>", { desc = "set scrollbind" })
+keymap.set("n", "<leader>ut", "<cmd>TroubleToggle<cr>", { desc = "toggle trouble" })
+keymap.set("n", "<leader>uz", "<cmd>Twilight<cr>", { desc = "toggle twilight" })
 
 -- Tmux navigator
 keymap.set("n", "<leader>h", "<cmd>TmuxNavigateLeft<CR>", { desc = "navigate left" })
@@ -153,14 +158,15 @@ keymap.set("n", "<leader>pU", function() require("lazy").update() end, { desc = 
 keymap.set("n", "<leader>pm", "<cmd>Mason<CR>", { desc = "mason Status" })
 
 -- Vim options
-keymap.set("n", "<leader>ua", "<cmd>set formatoptions=tc<CR>", { desc = "enable auto format" })
-keymap.set("n", "<leader>uA", "<cmd>set formatoptions-=tc<CR>", { desc = "disable auto format" })
+keymap.set("n", "<leader>uA", "<cmd>FormatEnable<CR>", { desc = "enable auto format" })
+keymap.set("n", "<leader>ua", "<cmd>FormatDisable<CR>", { desc = "disable auto format" })
 
 -- LSP
 keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
 keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "definition" })
 keymap.set("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
 keymap.set("v", "<leader>vf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
+keymap.set("v", "<leader>vs", ":sort<CR>", { desc = "sort" })
 
 vim.keymap.set("n", "<Leader><Esc>", function()
   vim.fn.setreg("/", "")
