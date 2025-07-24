@@ -41,6 +41,17 @@ return {
                     null_ls.builtins.formatting.prettierd.with { extra_filetypes = { "markdown", "rmd", "qmd" } }
                 )
             end,
+            -- yamllint = function(source_name, methods)
+            --     local null_ls = require("null-ls")
+            --     null_ls.register(
+            --         null_ls.builtins.diagnostics.yamllint.with({
+            --             -- args = { "--config", "auto", "-q", "--json", "$FILENAME" },
+            --             args = { "-c", os.getenv('HOME') .. "/.config/yamllint/config", "--format", "parsable", "-" },
+            --             timeout = 30000,
+            --             -- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+            --         })
+            --     )
+            -- end,
         },
     },
 }

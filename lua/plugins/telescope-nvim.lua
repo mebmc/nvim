@@ -17,21 +17,38 @@ return {
     { 'LukasPietzschmann/telescope-tabs' },
   },
   keys = {
-    { "<C-o>", desc = "old files", mode = {"n"}, require("telescope.builtin").oldfiles },
-    { "<C-p>", desc = "find files", mode = {"n"}, require("telescope.builtin").find_files },
+    { "<C-o>",           desc = "old files",  mode = { "n" },      require("telescope.builtin").oldfiles },
+    { "<C-p>",           desc = "find files", mode = { "n" },      require("telescope.builtin").find_files },
     -- { "<leader><space>", desc = "tabs", mode = {"n"}, function() require("telescope-tabs").list_tabs() end },
-    { "<leader><space>", desc = "buffers", mode = {"n"}, require("telescope.builtin").buffers },
-    { "<leader>ff", desc = "find files", mode = {"n"}, require("telescope.builtin").find_files },
-    { "<leader>fg", desc = "live grep", mode = {"n"}, require("telescope.builtin").live_grep },
-    { "<leader>fb", desc = "buffers", mode = {"n"}, require("telescope.builtin").buffers },
-    { "<leader>ft", desc = "tabs", mode = {"n"}, function() require("telescope-tabs").list_tabs() end },
-    { "<leader>fh", desc = "help tags", mode = {"n"}, require("telescope.builtin").help_tags },
-    { "<leader>fB", desc = "current buffer", mode = {"n"}, require("telescope.builtin").current_buffer_fuzzy_find },
-    { "<leader>fo", desc = "lsp document symbols", mode = {"n"}, require("telescope.builtin").lsp_document_symbols },
-    { "<leader>fi", desc = "lsp incoming calls", mode = {"n"}, require("telescope.builtin").lsp_incoming_calls },
-    { "<leader>fm", desc = "treesitter methods", mode = {"n"}, function() require("telescope.builtin").treesitter({ default_text = ":method:" }) end },
-    { "<leader>fs", desc = "session list", mode = {"n"}, "<cmd>Telescope neovim-project discover<CR>" },
-    { "<leader>fS", desc = "session history", mode = {"n"}, "<cmd>Telescope neovim-project history<CR>" },
+    { "<leader>f",       desc = "find",       mode = { "n", "v" }, "" },
+    { "<leader><space>", desc = "buffers",    mode = { "n" },      require("telescope.builtin").buffers },
+    { "<leader>ff",      desc = "find files", mode = { "n" },      require("telescope.builtin").find_files },
+    { "<leader>fg",      desc = "live grep",  mode = { "n" },      require("telescope.builtin").live_grep },
+    { "<leader>fb",      desc = "buffers",    mode = { "n" },      require("telescope.builtin").buffers },
+    {
+      "<leader>ft",
+      desc = "tabs",
+      mode = { "n" },
+      function()
+        require("telescope-tabs")
+            .list_tabs()
+      end
+    },
+    { "<leader>fh", desc = "help tags",            mode = { "n" }, require("telescope.builtin").help_tags },
+    { "<leader>fB", desc = "current buffer",       mode = { "n" }, require("telescope.builtin").current_buffer_fuzzy_find },
+    { "<leader>fo", desc = "lsp document symbols", mode = { "n" }, require("telescope.builtin").lsp_document_symbols },
+    { "<leader>fi", desc = "lsp incoming calls",   mode = { "n" }, require("telescope.builtin").lsp_incoming_calls },
+    {
+      "<leader>fm",
+      desc = "treesitter methods",
+      mode = { "n" },
+      function()
+        require("telescope.builtin")
+            .treesitter({ default_text = ":method:" })
+      end
+    },
+    { "<leader>fs", desc = "session list",    mode = { "n" }, "<cmd>Telescope neovim-project discover<CR>" },
+    { "<leader>fS", desc = "session history", mode = { "n" }, "<cmd>Telescope neovim-project history<CR>" },
   },
   opts = function()
     local actions = require "telescope.actions"
@@ -115,10 +132,10 @@ return {
         },
         extensions = {
           fzf = {
-            fuzzy = true,                               -- false will only do exact matching
-            override_generic_sorter = true,             -- override the generic sorter
-            override_file_sorter = true,                -- override the file sorter
-            case_mode = "smart_case",                   -- or "ignore_case" or "respect_case"
+            fuzzy = true,                   -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
           }
         }

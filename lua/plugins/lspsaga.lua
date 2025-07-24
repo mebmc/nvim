@@ -11,6 +11,7 @@ return {
     },
     keys = {
         { "gl",               "<cmd>Lspsaga show_line_diagnostics<cr>",      desc = "line diagnostics" },
+        { "<leader>v",        "",                                            desc = "lspsaga",              mode = { "n", "v" } },
         { "<leader>v<enter>", "<cmd>Lspsaga outline<cr>",                    desc = "outline" },
         { "<leader>vh",       "<cmd>Lspsaga finder<cr>",                     desc = "lsp finder" },
         { "<leader>va",       "<cmd>Lspsaga code_action<cr>",                desc = "code action" },
@@ -28,7 +29,7 @@ return {
         { "<leader>vK",       "<cmd>Lspsaga hover_doc ++keep<cr>",           desc = "hover doc (Keep)" },
         { "<leader>vi",       "<cmd>Lspsaga incoming_calls<cr>",             desc = "incoming calls" },
         { "<leader>vo",       "<cmd>Lspsaga outgoing_calls<cr>",             desc = "outgoing calls" },
-        { "<leader>vf",       "<cmd>Lspsaga term_toggle<cr>",                desc = "term toggle" },
+        { "<leader>vg",       "<cmd>Lspsaga term_toggle<cr>",                desc = "term toggle" },
         { "[e",               "<cmd>Lspsaga diagnostic_jump_prev<cr>",       desc = "diagnostic jump" },
         { "]e",               "<cmd>Lspsaga diagnostic_jump_next<cr>",       desc = "diagnostics jump" },
     },
