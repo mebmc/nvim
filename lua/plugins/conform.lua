@@ -1,5 +1,6 @@
 return {
   'stevearc/conform.nvim',
+  event = "VeryLazy",
   opts = {
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
@@ -15,5 +16,15 @@ return {
     python = { "ruff_format" },
     terraform = { "terraform" },
     typescript = { "biome" },
+
+    formatters = {
+      shfmt = {
+        prepend_args = function(self, ctx)
+          return { "-i", "4" }
+        end,
+      }
+    }
+
+
   },
 }
