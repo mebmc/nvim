@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({'BufWinEnter'}, {
+vim.api.nvim_create_autocmd({ 'BufWinEnter' }, {
   -- group = 'userconfig',
   desc = 'return cursor to where it was last time closing the file',
   pattern = '*',
@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd({'BufWinEnter'}, {
 })
 
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
+  local opts = { buffer = 0 }
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<M-h>', [[<Cmd>TmuxNavigateLeft<CR>]], opts)
@@ -15,6 +15,9 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<M-l>', [[<Cmd>TmuxNavigateRight<CR>]], opts)
   vim.keymap.set('t', '<M-w>', [[<C-\><C-n><C-w>]], opts)
 end
+
+-- Disable markdown render
+vim.cmd([[autocmd BufRead,BufNewFile *.md RenderMarkdown disable]])
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')

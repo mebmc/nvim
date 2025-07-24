@@ -67,3 +67,5 @@ opt.textwidth = 0
 opt.spell = true
 opt.spelllang = "en_gb,en,cjk"
 
+-- Autoformat
+vim.g.autoformat = true
