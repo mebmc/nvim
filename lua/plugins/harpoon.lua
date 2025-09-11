@@ -17,7 +17,7 @@ return {
       end
     },
     {
-      "<leader>H",
+      "<leader>=",
       desc = "harpoon add",
       mode = { "n", "v" },
       function() return require('harpoon'):list():add() end
@@ -71,4 +71,3 @@ return {
     }
   },
 }
-
