@@ -50,15 +50,17 @@ return {
       }
     },
     adapters = {
-      gemini = function()
-        return require("codecompanion.adapters").extend("gemini", {
-          schema = {
-            model = {
-              default = "gemini-2.5-pro-exp-03-25",
+      http = {
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            schema = {
+              model = {
+                default = "gemini-2.5-pro-exp-03-25",
+              },
             },
-          },
-        })
-      end,
+          })
+        end,
+      },
     },
     prompt_library = {
       ["Documentation generation (e.g., `/doc`)"] = {
