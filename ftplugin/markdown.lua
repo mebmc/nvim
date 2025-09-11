@@ -7,9 +7,9 @@ vim.opt.conceallevel=0
 vim.opt.textwidth = 120
 vim.opt.colorcolumn = "120"
 
--- Allow j/k when navigating wrapped lines
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
+-- Allow j/k when navigating wrapped lines (buffer-local)
+vim.keymap.set("n", "j", "gj", { buffer = true, silent = true })
+vim.keymap.set("n", "k", "gk", { buffer = true, silent = true })
 
 -- Spell check
 vim.opt.spelllang = 'en_gb'
