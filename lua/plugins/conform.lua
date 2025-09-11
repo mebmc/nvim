@@ -10,12 +10,14 @@ return {
     end,
 
     bash = { "shfmt" },
+    fish = { "fish_indent" },
     go = { "gofmt", "goimports" },
     javascript = { "biome" },
     lua = { "stylua" },
     python = { "ruff_format" },
     terraform = { "terraform" },
     typescript = { "biome" },
+    yaml = { "yamlfmt" },
 
     formatters = {
       shfmt = {
@@ -24,7 +26,6 @@ return {
         end,
       }
     }
-
 
   },
 }
