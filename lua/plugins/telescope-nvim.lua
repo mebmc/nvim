@@ -98,6 +98,37 @@ return {
 
     vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
+    --  Function to delete selected buffers
+    local actions = require "telescope.actions"
+    local action_state = require "telescope.actions.state"
+
+    local function delete_selected_bufs(prompt_bufnr)
+      local actions = require("telescope.actions")
+      local action_state = require("telescope.actions.state")
+      local builtin = require("telescope.builtin")
+
+      local picker = action_state.get_current_picker(prompt_bufnr)
+      local multi = picker:get_multi_selection()
+
+      if vim.tbl_isempty(multi) then
+        multi = { action_state.get_selected_entry() }
+      end
+
+      for _, entry in ipairs(multi) do
+        if entry.bufnr and vim.api.nvim_buf_is_valid(entry.bufnr) then
+          vim.api.nvim_buf_delete(entry.bufnr, { force = false })
+        end
+      end
+
+      local current_line = picker:get_selection_row()
+      actions.close(prompt_bufnr)
+
+      builtin.buffers({
+        initial_mode = "normal",
+        default_selection_index = current_line,
+      })
+    end
+
     return {
       defaults = {
         git_worktrees = vim.g.git_worktrees,
@@ -105,6 +136,7 @@ return {
         selection_caret = "> ",
         path_display = { "truncate" },
         sorting_strategy = "ascending",
+        initial_mode = "normal",
         layout_config = {
           horizontal = { prompt_position = "top", preview_width = 0.55 },
           vertical = { mirror = false },
@@ -118,11 +150,15 @@ return {
             ["<C-p>"] = actions.cycle_history_prev,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
+            ["<C-q>"] = delete_selected_bufs,
           },
           n = {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
-            q = actions.close
+            ["<C-q>"] = delete_selected_bufs,
+            x = delete_selected_bufs,
+            Q = delete_selected_bufs,
+            q = actions.close,
           },
         },
         pickers = {
