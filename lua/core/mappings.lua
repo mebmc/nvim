@@ -179,3 +179,22 @@ end, {
   silent = true,
   noremap = true,
 })
+
+
+
+-- init.lua / keymaps.lua
+keymap.set("n", "]j", function()
+  require("user.jj_jump").jump(1)
+end, { desc = "Next jj changed line" })
+
+keymap.set("n", "[j", function()
+  require("user.jj_jump").jump(-1)
+end, { desc = "Previous jj changed line" })
+
+keymap.set("n", "[J", function()
+  require("user.jj_jump").first()
+end, { desc = "First jj changed line" })
+
+keymap.set("n", "]J", function()
+  require("user.jj_jump").last()
+end, { desc = "Last jj changed line" })
