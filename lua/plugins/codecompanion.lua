@@ -61,8 +61,8 @@ return {
     },
     strategies = {
       chat = {
-        -- adapter = "codex",
-        adapter = "copilot",
+        adapter = "codex",
+        -- adapter = "copilot",
         -- adapter = "gemini"
       },
       inline = {
