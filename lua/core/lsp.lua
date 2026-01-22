@@ -95,3 +95,18 @@ vim.lsp.config('yamlls', {
     },
   },
 })
+
+
+vim.lsp.enable('terraformls')
+vim.lsp.config('terraformls', {
+  init_options = {
+    terraform = {
+      path = vim.fs.normalize(vim.env.HOME .. "/.scripts/wtf"),
+    },
+  },
+  settings = {
+    terraform = {
+      formatting = { provider = "terraform_fmt" },
+    },
+  },
+})
