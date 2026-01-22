@@ -13,6 +13,13 @@ return {
             separator  = "➜", -- symbol used between a key and it's label
             group      = "", -- symbol prepended to a group
         },
+        delay = function(ctx)
+            if ctx.keys == "[" or ctx.keys == "]" then
+                return 800
+            end
+
+            return ctx.plugin and 0 or 200
+        end,
     },
     config = function(_, opts)
         require('which-key').setup(opts)
