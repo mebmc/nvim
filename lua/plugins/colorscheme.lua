@@ -2,8 +2,8 @@
 -- Kanagawa Theme (Custom Palette)
 return {
   'rebelot/kanagawa.nvim', -- You can replace this with your favorite colorscheme
-  lazy = false, -- We want the colorscheme to load immediately when starting Neovim
-  priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
+  lazy = false,            -- We want the colorscheme to load immediately when starting Neovim
+  priority = 1000,         -- Load the colorscheme before other non-lazy-loaded plugins
   opts = {
     -- Replace this with your scheme-specific settings or remove to use the defaults
     -- transparent = true,
@@ -38,20 +38,20 @@ return {
         -- Diag
         samuraiRed = "#E82424",
         roninYellow = "#FF9E3B",
-        waveAqua1 = "#7E9CD8", -- modified
+        waveAqua1 = "#7E9CD8",  -- modified
         dragonBlue = "#7FB4CA", -- modified
 
         -- Foreground and Comments
         oldWhite = "#C8C093",
-        fujiWhite = "#F9E7C0", -- modified
+        fujiWhite = "#F9E7C0",   -- modified
         fujiGray = "#727169",
-        oniViolet = "#BFA3E6", -- modified
-        oniViolet2 = "#BCACDB", -- modified
+        oniViolet = "#BFA3E6",   -- modified
+        oniViolet2 = "#BCACDB",  -- modified
         crystalBlue = "#8CABFF", -- modified
         springViolet1 = "#938AA9",
         springViolet2 = "#9CABCA",
         springBlue = "#7FC4EF", -- modified
-        waveAqua2 = "#77BBDD", -- modified
+        waveAqua2 = "#77BBDD",  -- modified
 
         springGreen = "#98BB6C",
         boatYellow1 = "#938056",
@@ -169,5 +169,3 @@ return {
 --     vim.cmd("colorscheme onenord") -- Replace this with your favorite colorscheme
 --   end
 -- }
-
-
