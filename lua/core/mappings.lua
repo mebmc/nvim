@@ -9,16 +9,21 @@ keymap.set("n", "<leader>w", "", { desc = "write" })
 keymap.set("n", "<leader>W", "", { desc = "write" })
 keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "save" })
 keymap.set("n", "<leader>Ww", "<cmd>w<CR>", { desc = "save" })
-keymap.set("n", "<leader>wq", "<cmd>wq<CR>", { desc = "save and quit" })
-keymap.set("n", "<leader>Wq", "<cmd>wq<CR>", { desc = "save and quit" })
+keymap.set("n", "<leader>wq", "<cmd>wqa<CR>", { desc = "save and quit" })
+keymap.set("n", "<leader>Wq", "<cmd>wqa<CR>", { desc = "save and quit" })
 keymap.set("n", "<leader>wb", "<cmd>w<CR><cmd>bd<CR>", { desc = "save and close buffer" })
-keymap.set("n", "<leader>qq", "<cmd>q<CR>", { desc = "quit" })
-keymap.set("n", "<leader>qQ", "<cmd>q!<CR>", { desc = "force quit" })
+keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quit" })
+keymap.set("n", "<leader>qQ", "<cmd>qa!<CR>", { desc = "force quit" })
 keymap.set("n", "<leader>qb", "<cmd>bd<CR>", { desc = "quit buffer" })
+keymap.set("n", "<leader>qs", "<cmd>close<CR>", { desc = "close split" })
 keymap.set("n", "gx", "<cmd>!open <c-r><c-a><CR>", { desc = "open URL under cursor" })
 keymap.set("n", "gb", "<cmd>bprev<CR>", { desc = "previous buffer" })
 keymap.set("n", "gB", "<cmd>bnext<CR>", { desc = "next buffer" })
 -- keymap.set("n", "gq", "<cmd>bd<CR>", { desc = "close buffer" })
+keymap.set("n", "t", "\"tp", { desc = "paste t register" })
+keymap.set("n", "T", "\"tyy", { desc = "copy t register" })
+keymap.set({ "n", "x" }, "t", '"tp', { desc = "paste t register" })
+keymap.set("x", "T", '"ty', { desc = "copy selection to t register" })
 
 -- User maps
 keymap.set("n", "<leader>u2", "<cmd>set autoindent expandtab tabstop=2 shiftwidth=2<cr>", { desc = "tab size 2" })
@@ -34,10 +39,10 @@ keymap.set("n", "<leader>ut", "<cmd>TroubleToggle<cr>", { desc = "toggle trouble
 keymap.set("n", "<leader>uz", "<cmd>Twilight<cr>", { desc = "toggle twilight" })
 
 -- Tmux navigator
-keymap.set("n", "<leader>h", "<cmd>TmuxNavigateLeft<CR>", { desc = "navigate left" })
-keymap.set("n", "<leader>j", "<cmd>TmuxNavigateDown<CR>", { desc = "navigate down" })
-keymap.set("n", "<leader>k", "<cmd>TmuxNavigateUp<CR>", { desc = "navigate up" })
-keymap.set("n", "<leader>l", "<cmd>TmuxNavigateRight<CR>", { desc = "navigate right" })
+-- keymap.set("n", "<leader>h", "<cmd>TmuxNavigateLeft<CR>", { desc = "navigate left" })
+-- keymap.set("n", "<leader>j", "<cmd>TmuxNavigateDown<CR>", { desc = "navigate down" })
+-- keymap.set("n", "<leader>k", "<cmd>TmuxNavigateUp<CR>", { desc = "navigate up" })
+-- keymap.set("n", "<leader>l", "<cmd>TmuxNavigateRight<CR>", { desc = "navigate right" })
 keymap.set("n", "<M-h>", "<cmd>TmuxNavigateLeft<CR>", { desc = "navigate left" })
 keymap.set("n", "<M-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "navigate down" })
 keymap.set("n", "<M-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "navigate up" })
@@ -50,7 +55,6 @@ keymap.set("i", "<M-l>", "<cmd>TmuxNavigateRight<CR>", { desc = "navigate right"
 keymap.set("i", "<M-\\>", "<cmd>TmuxNavigatePrevious<CR>", { desc = "navigate previous" })
 
 -- Buffer management
-
 keymap.set("n", "<leader>bq", "<cmd>bd<CR>", { desc = "close buffer" })
 keymap.set("n", "<leader>bQ", "<cmd>bd!<CR>", { desc = "force close buffer" })
 keymap.set("n", "<leader>bn", "<cmd>enew<CR>", { desc = "new buffer" })
@@ -73,9 +77,9 @@ keymap.set("n", "[t", "<cmd>tabp<CR>", { desc = "previous tab" })
 keymap.set("n", "<leader>s\\", "<C-w>s", { desc = "split horizontally" })
 keymap.set("n", "<leader>s|", "<C-w>v", { desc = "split vertically" })
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "equal width split" })
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "close split" })
-keymap.set("n", "<leader>sj", "<C-w>-", { desc = "increase split height" })
-keymap.set("n", "<leader>sk", "<C-w>+", { desc = "decrease split height" })
+keymap.set("n", "<leader>sq", "<cmd>close<CR>", { desc = "close split" })
+keymap.set("n", "<leader>sj", "<C-w>5-", { desc = "increase split height" })
+keymap.set("n", "<leader>sk", "<C-w>5+", { desc = "decrease split height" })
 keymap.set("n", "<leader>sl", "<C-w>>5", { desc = "increase split width" })
 keymap.set("n", "<leader>sh", "<C-w><5", { desc = "decrease split width" })
 
@@ -111,20 +115,12 @@ keymap.set("n", "]L", "<cmd>llast<cr>", { desc = "last location list item" })
 keymap.set("n", "<leader>sm", "<cmd>MaximizerToggle<CR>", { desc = "maximize tab" })
 
 -- Terminal
-keymap.set("n", "<leader>rf", "<cmd>ToggleTerm direction=float<CR>", { desc = "term float" })
-keymap.set("n", "<leader>r\\", "<cmd>ToggleTerm direction=horizontal size=20<CR>", { desc = "term horizontal" })
-keymap.set("n", "<leader>r|", "<cmd>ToggleTerm direction=vertical size=80<CR>", { desc = "term vertical" })
-keymap.set("n", "<leader>rt", "<cmd>ToggleTerm<CR>", { desc = "term toggle" })
--- keymap.set("n", "<leader>rb", "<cmd>ToggleTerm direction=horizontal size=20 dir=%:h<CR>", { desc = "term buf path" })
+keymap.set("n", "<leader>r\\", "<cmd>!tmux splitw -l 30\\% -c %:h<CR>", { silent = true, desc = "term horizontal" })
+keymap.set("n", "<leader>r|", "<cmd>!tmux splitw -h -l 30\\% -c %:h<CR>", { silent = true, desc = "term vertical" })
 keymap.set("n", "<leader>rw", "<cmd>!tmux splitw -l 20\\%<CR>", { silent = true, desc = "tmux working path" })
 keymap.set("n", "<leader>rW", "<cmd>!tmux splitw -l 50\\%<CR>", { silent = true, desc = "tmux working path" })
 keymap.set("n", "<leader>rb", "<cmd>!tmux splitw -l 20\\% -c %:h<CR>", { silent = true, desc = "tmux buf path" })
 keymap.set("n", "<leader>rB", "<cmd>!tmux splitw -l 50\\% -c %:h<CR>", { silent = true, desc = "tmux buf path" })
-
--- Updated
-keymap.set("n", "<leader>\\", "<cmd>!tmux splitw -l 30\\% -c %:h<CR>", { silent = true, desc = "term horizontal" })
-keymap.set("n", "<leader>|", "<cmd>!tmux splitw -h -l 30\\% -c %:h<CR>", { silent = true, desc = "term vertical" })
-keymap.set("n", "<leader><C-\\>", "<cmd>ToggleTerm direction=float<CR>", { desc = "term float" })
 
 -- -- Diff keymaps
 -- keymap.set("n", "<leader>cc", "<cmd>diffput<CR>", { desc = "put diff" })
@@ -171,6 +167,16 @@ keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "defini
 keymap.set("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
 keymap.set("v", "<leader>vf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
 keymap.set("v", "<leader>vs", ":sort<CR>", { desc = "sort" })
+
+keymap.set("n", "<leader>fj", function()
+  require("telescope.builtin").find_files({
+    prompt_title = "jj changed files",
+    find_command = {
+      "sh", "-c",
+      "jj diff --name-only"
+    },
+  })
+end, { desc = "jj changed files" })
 
 vim.keymap.set("n", "<Leader><Esc>", function()
   vim.fn.setreg("/", "")
