@@ -7,12 +7,12 @@ return {
 		dynamicSlots = "static",
 
 		mapping = {
-			startStopRecording = "qr",
-			playMacro = "qf",
-			switchSlot = "qq",
-			editMacro = "qe",
-			deleteAllMacros = "qd",
-			yankMacro = "qy",
+			startStopRecording = ";r",
+			playMacro = ";f",
+			switchSlot = ";;",
+			editMacro = ";e",
+			deleteAllMacros = ";d",
+			yankMacro = ";y",
 			-- ⚠️ this should be a string you don't use in insert mode during a macro
 			addBreakPoint = "##",
 		},
