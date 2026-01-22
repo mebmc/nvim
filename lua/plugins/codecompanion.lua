@@ -35,8 +35,33 @@ return {
     { "<leader>eu", desc = "unit tests",  mode = { "n", "v" }, "<cmd>CodeCompanion /tests<cr>" },
   },
   opts = {
+    display = {
+      chat = {
+        window = {
+          buflisted = false,     -- List the chat buffer in the buffer list?
+          sticky = false,        -- Chat buffer remains open when switching tabs
+
+          layout = "horizontal", -- float|vertical|horizontal|buffer
+          full_height = false,   -- for vertical layout
+          position = nil,        -- left|right|top|bottom (nil will default depending on vim.opt.splitright|vim.opt.splitbelow)
+
+          width = 0.5, ---@return number|fun(): number
+          height = 0.3, ---@return number|fun(): number
+          border = "single",
+          relative = "editor",
+
+          -- Ensure that long paragraphs of markdown are wrapped
+          opts = {
+            breakindent = true,
+            linebreak = true,
+            wrap = true,
+          },
+        },
+      },
+    },
     strategies = {
       chat = {
+        -- adapter = "codex",
         adapter = "copilot",
         -- adapter = "gemini"
       },
@@ -50,6 +75,15 @@ return {
       }
     },
     adapters = {
+      acp = {
+        codex = function()
+          return require("codecompanion.adapters").extend("codex", {
+            defaults = {
+              auth_method = "chatgpt", -- "openai-api-key"|"codex-api-key"|"chatgpt"
+            },
+          })
+        end,
+      },
       http = {
         gemini = function()
           return require("codecompanion.adapters").extend("gemini", {
