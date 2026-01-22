@@ -13,6 +13,7 @@ return {
 
     -- Additional lua configuration, makes nvim stuff amazing!
     { 'folke/neodev.nvim' },
+    { 'b0o/schemastore.nvim' },
   },
   opts = {
     -- Install these LSPs automatically
