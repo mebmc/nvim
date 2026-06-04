@@ -8,10 +8,13 @@ opt.relativenumber = true
 opt.number = true
 
 -- Tabs & Indentation
-opt.softtabstop = 4
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
 -- vim.bo.softtabstop = 4
 
 -- -- Tabs & Indentation
@@ -37,10 +40,10 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
-vim.diagnostic.config {
-  float = { border = "rounded" }, -- add border to diagnostic popups
-  virtual_text = true,
-}
+vim.diagnostic.config({
+	float = { border = "rounded" }, -- add border to diagnostic popups
+	virtual_text = true,
+})
 
 -- Backspace
 opt.backspace = "indent,eol,start"

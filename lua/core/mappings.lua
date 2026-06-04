@@ -12,9 +12,10 @@ keymap.set("n", "<leader>Ww", "<cmd>w<CR>", { desc = "save" })
 keymap.set("n", "<leader>wq", "<cmd>wqa<CR>", { desc = "save and quit" })
 keymap.set("n", "<leader>Wq", "<cmd>wqa<CR>", { desc = "save and quit" })
 keymap.set("n", "<leader>wb", "<cmd>w<CR><cmd>bd<CR>", { desc = "save and close buffer" })
-keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quit" })
 keymap.set("n", "<leader>qQ", "<cmd>qa!<CR>", { desc = "force quit" })
 keymap.set("n", "<leader>qb", "<cmd>bd<CR>", { desc = "quit buffer" })
+keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quit" })
+keymap.set("n", "<leader>qr", "<cmd>checktime<CR>", { desc = "check/reload changed file" })
 keymap.set("n", "<leader>qs", "<cmd>close<CR>", { desc = "close split" })
 keymap.set("n", "gx", "<cmd>!open <c-r><c-a><CR>", { desc = "open URL under cursor" })
 keymap.set("n", "gb", "<cmd>bprev<CR>", { desc = "previous buffer" })
@@ -167,6 +168,38 @@ keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "defini
 keymap.set("n", "<leader>vf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
 keymap.set("v", "<leader>vf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "format" })
 keymap.set("v", "<leader>vs", ":sort<CR>", { desc = "sort" })
+
+keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float({ scope = 'line' })<CR>", { desc = "line diagnostics" })
+
+keymap.set({ "n", "v" }, "<leader>v", "", { desc = "lsp" })
+keymap.set("n", "<leader>v<enter>", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", { desc = "outline / document symbols" })
+keymap.set("n", "<leader>vh", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "lsp references" })
+keymap.set({ "n", "v" }, "<leader>va", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "code action" })
+keymap.set("n", "<leader>vr", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "rename" })
+keymap.set("n", "<leader>vR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "rename project" })
+
+keymap.set("n", "<leader>vd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "definition" })
+keymap.set("n", "<leader>vD", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "goto definition" })
+keymap.set("n", "<leader>vt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "type definition" })
+keymap.set("n", "<leader>vT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "goto type definition" })
+
+keymap.set("n", "<leader>vl", "<cmd>lua vim.diagnostic.open_float({ scope = 'line' })<CR>", { desc = "line diagnostics" })
+keymap.set("n", "<leader>vb", "<cmd>lua vim.diagnostic.setloclist({ open = true })<CR>", { desc = "buf diagnostics" })
+keymap.set("n", "<leader>vw", "<cmd>lua vim.diagnostic.setqflist({ open = true })<CR>",
+  { desc = "workspace diagnostics" })
+keymap.set("n", "<leader>vC", "<cmd>lua vim.diagnostic.open_float({ scope = 'cursor' })<CR>",
+  { desc = "cursor diagnostics" })
+
+keymap.set("n", "<leader>vk", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "hover doc" })
+keymap.set("n", "<leader>vK", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "hover doc" })
+
+keymap.set("n", "<leader>vi", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", { desc = "incoming calls" })
+keymap.set("n", "<leader>vo", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", { desc = "outgoing calls" })
+
+keymap.set("n", "[e", "<cmd>lua vim.diagnostic.jump({ count = -1, float = true })<CR>", { desc = "previous diagnostic" })
+keymap.set("n", "]e", "<cmd>lua vim.diagnostic.jump({ count = 1, float = true })<CR>", { desc = "next diagnostic" })
+
+
 
 keymap.set("n", "<leader>fj", function()
   require("telescope.builtin").find_files({
