@@ -40,7 +40,7 @@ return {
       'ruff',
       'solidity',
       'terraformls',
-      -- 'tsserver', -- requires npm to be installed
+      'ts_ls',  -- requires npm to be installed
       'vimls',
       'yamlls', -- requires npm to be installed
     },
