@@ -79,6 +79,20 @@ vim.lsp.config('ruff_lsp', {
 })
 
 
+-- Typescript
+vim.lsp.enable('ts_ls')
+vim.lsp.config('ts_ls', {
+  -- cmd = { 'typescript-language-server', '--stdio' },
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  },
+  root_dir = vim.fs.root(0, { 'package.json', '.git', '.jj' }),
+})
+
+
 -- YAML: plain yaml files
 vim.lsp.enable('yamlls')
 vim.lsp.config('yamlls', {
