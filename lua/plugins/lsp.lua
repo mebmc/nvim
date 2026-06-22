@@ -1,8 +1,14 @@
 return {
   {
+    'mason-org/mason.nvim',
+    lazy = false,
+    opts = {},
+  },
+  {
     'neovim/nvim-lspconfig',
     lazy = false,
     dependencies = {
+      'mason-org/mason-lspconfig.nvim',
       'saghen/blink.cmp',
       'b0o/schemastore.nvim',
     },
@@ -138,7 +144,10 @@ return {
       --   })
       -- end
 
-      vim.lsp.enable(servers)
+      require('mason-lspconfig').setup({
+        ensure_installed = servers,
+        automatic_enable = servers,
+      })
     end,
   },
 }
