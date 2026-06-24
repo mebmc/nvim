@@ -5,6 +5,7 @@ return {
   dependencies = {
     'onsails/lspkind.nvim',
     'nvim-mini/mini.nvim',
+    'Kaiser-Yang/blink-cmp-dictionary',
   },
 
   ---@module 'blink.cmp'
@@ -72,6 +73,7 @@ return {
         'lsp',
         'path',
         'snippets',
+        'dictionary',
         'buffer',
       },
       providers = {
@@ -87,9 +89,19 @@ return {
             end,
           },
         },
+        dictionary = {
+          module = 'blink-cmp-dictionary',
+          name = 'Dict',
+          min_keyword_length = 2,
+          opts = {
+            dictionary_files = {
+              vim.fn.expand('~/.config/nvim/dictionary/custom.dict'),
+            },
+          },
+        },
         buffer = {
           opts = {
-            get_bufnrs = vim.api.nvim_list_bufs,
+            -- get_bufnrs = vim.api.nvim_list_bufs,
 
             get_bufnrs = function()
               return vim.tbl_filter(function(bufnr)
